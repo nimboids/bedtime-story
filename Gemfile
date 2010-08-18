@@ -1,8 +1,8 @@
 source "http://rubygems.org"
 
 # put production gems here
-gem "postgres-pr"
-gem "rails"
+gem "postgres"
+gem "rails", "2.3.8"
 
 group :plugins do
 end
