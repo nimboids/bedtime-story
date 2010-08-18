@@ -8,6 +8,7 @@ group :plugins do
 end
 
 group :development, :test do
+  gem "heroku"
   gem "cucumber"
   gem "cucumber-rails"
   gem "database_cleaner"
