@@ -1,0 +1,25 @@
+
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: bedtime_story_development
+  username: bedtime_story
+  password:
+
+test: &TEST
+  adapter: postgresql
+  encoding: unicode
+  database: bedtime_story_test
+  username: bedtime_story
+  password:
+
+cucumber:
+  <<: *TEST
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: bedtime_story_production
+  username: bedtime_story
+  password:
+

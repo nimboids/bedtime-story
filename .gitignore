@@ -1,0 +1,15 @@
+.bundle
+vendor/bundle
+database.yml
+restart.txt
+log/**
+tmp/**
+public/cache/**
+db/schema.rb
+TAGS
+coverage
+webrat*html
+*.swn
+*.swo
+*.swp
+.idea/**

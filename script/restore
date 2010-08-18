@@ -1,0 +1,102 @@
+#!/usr/bin/env ruby
+
+##########################################################################
+#                                                                        #
+# This file is part of the nimbus rails template: DO NOT UPDATE MANUALLY #
+#                                                                        #
+# To update, run 'rake template'                                         #
+#                                                                        #
+##########################################################################
+
+ENV['RAILS_ENV'] = 'production'
+unless File.exists?("#{File.dirname(__FILE__)}/../config/environments/#{ENV['RAILS_ENV']}.rb")
+  puts "config/environments/#{ENV['RAILS_ENV']}.rb does not exist"
+  exit 1
+end
+require File.dirname(__FILE__) + '/../config/environment'
+
+unless ARGV[0].present?
+  puts <<EOF
+
+***************************************************************************
+*                                                                         *
+*  You must specify the data of the basckup on the command line in        *
+*  yyyymmdd format e.g.                                                   *
+*      ./script/restore 20091231                                          *
+*                                                                         *
+***************************************************************************
+
+EOF
+  exit 1
+end
+
+unless defined?(Backup::BUCKET_NAME)
+  puts <<EOF
+
+***************************************************************************
+*                                                                         *
+*  To run the restore script you need to configure the name of an         *
+*  existing bucket where the backups have been created in production.rb   *
+*                                                                         *
+***************************************************************************
+
+EOF
+  exit 1
+end
+
+date = ARGV[0]
+bucket_name = Backup::BUCKET_NAME
+tarball_name = "#{bucket_name}-#{date}.tgz"
+tmp_dir = "/tmp/#{bucket_name}-#{date}"
+
+RAILS_DEFAULT_LOGGER.info "Attempting restore backup #{tarball_name} from bucket #{bucket_name}"
+
+ENV['AWS_ACCESS_KEY_ID'] = Backup::AWS_ACCESS_KEY_ID
+ENV['AWS_SECRET_ACCESS_KEY'] = Backup::AWS_SECRET_ACCESS_KEY
+
+aws_uri = URI.parse(Backup::AWS_S3_URI)
+ENV['AWS_S3_HOST'] = aws_uri.host
+ENV['AWS_S3_PORT'] = aws_uri.port.to_s
+ENV['AWS_S3_VIRTUAL_PATH'] = aws_uri.path
+ENV['AWS_CALLING_FORMAT'] = "REGULAR"
+ENV['HTTP_PROXY_HOST'] = Backup::HTTP_PROXY_HOST if Backup::HTTP_PROXY_HOST.present?
+ENV['HTTP_PROXY_PORT'] = Backup::HTTP_PROXY_PORT if Backup::HTTP_PROXY_PORT.present?
+
+
+# retrieve the tarball from the right S3 storage
+system "s3cmd get #{bucket_name}:#{date}.tgz /tmp/#{tarball_name}"
+
+# unpack
+system %(cd /tmp; tar xzf #{tarball_name})
+
+#
+# Restore files
+system %(cd #{tmp_dir}; cp -r ./log/* #{RAILS_ROOT}/log)
+system %(cd #{tmp_dir}; cp -r ./config/* #{RAILS_ROOT}/config)
+
+#
+# Restore database
+dbfile = YAML.load_file("#{RAILS_ROOT}/config/database.yml")
+production_database = dbfile["production"]["database"]
+database_tables = `psql -d #{production_database} -c '\\dt'`
+unless database_tables == 'No relations found.\n'
+  puts "The database is not empty - do you want to delete all tables in #{production_database}? (yes/no)"
+  if STDIN.readline.strip == 'yes'
+    system 'rake db:drop db:create'
+  else
+    puts "Restore aborted."
+    exit 1
+  end
+end
+
+system %(psql -d #{production_database} < #{tmp_dir}/database.sql)
+
+# Restart to pick up config changes and ensure logs are being written to the new files
+system %(cd #{RAILS_ROOT}; export RAILS_ENV=production; rake restart)
+
+#
+# Cleanup
+FileUtils.rm_f "/tmp/#{tarball_name}"
+FileUtils.rm_rf tmp_dir
+
+RAILS_DEFAULT_LOGGER.info "Restore of #{tarball_name} from bucket #{bucket_name} complete"

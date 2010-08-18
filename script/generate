@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+ARGV << "--skip-fixture" if ARGV[0] == "rspec_model"
+require File.expand_path('../../config/boot',  __FILE__)
+require 'commands/generate'

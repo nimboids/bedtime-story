@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+
+system 'bundle install'
+system 'rake setup'

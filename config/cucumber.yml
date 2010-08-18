@@ -1,0 +1,3 @@
+default: --require features/support --require features/step_definitions
+ok: features --profile default --strict --tags ~@wip --format progress --format html --out log/features_ok.html
+wip: features --profile default --tags @wip --wip --format progress --format html --out log/features_wip.html
