@@ -14,6 +14,10 @@ dependencies:
     - :development
     - :test
     version: ">= 0"
+  elastic_rails: 
+    group: 
+    - :default
+    version: ">= 0"
   shoulda: 
     group: 
     - :development
@@ -112,6 +116,8 @@ specs:
     version: 0.3.2
 - database_cleaner: 
     version: 0.5.2
+- elastic_rails: 
+    version: 2.0.2
 - factory_girl: 
     version: 1.3.2
 - launchy: 
@@ -150,7 +156,7 @@ specs:
     version: 1.3.4
 - webrat: 
     version: 0.7.1
-hash: 26f4b3f7dbfc5dbda03492a19eb2b05960fe98d1
+hash: 1b546d7b1204336db0ac761516073c50155a9607
 sources: 
 - Rubygems: 
     uri: http://rubygems.org

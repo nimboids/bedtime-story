@@ -3,6 +3,7 @@ source "http://rubygems.org"
 # put production gems here
 gem "postgres"
 gem "rails", "2.3.8"
+gem "elastic_rails"
 
 group :plugins do
 end
