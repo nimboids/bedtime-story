@@ -14,8 +14,6 @@ group :development, :test do
   gem "cucumber-rails"
   gem "database_cleaner"
   gem "webrat"
-  gem "webmock"
-
   gem "rspec"
   gem "rspec-rails"
   gem "rcov"

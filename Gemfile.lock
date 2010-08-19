@@ -48,7 +48,7 @@ dependencies:
     - :development
     - :test
     version: ">= 0"
-  webrat: 
+  heroku: 
     group: 
     - :development
     - :test
@@ -58,7 +58,7 @@ dependencies:
     - :development
     - :test
     version: ">= 0"
-  heroku: 
+  webrat: 
     group: 
     - :development
     - :test
@@ -68,11 +68,6 @@ dependencies:
     - :default
     version: ">= 0"
   cucumber: 
-    group: 
-    - :development
-    - :test
-    version: ">= 0"
-  webmock: 
     group: 
     - :development
     - :test
@@ -92,14 +87,10 @@ specs:
     version: 2.3.8
 - activeresource: 
     version: 2.3.8
-- addressable: 
-    version: 2.2.0
 - builder: 
     version: 2.1.2
 - configuration: 
     version: 1.1.0
-- crack: 
-    version: 0.1.8
 - diff-lcs: 
     version: 1.1.2
 - trollop: 
@@ -152,11 +143,9 @@ specs:
     version: 2.11.3
 - spork: 
     version: 0.8.4
-- webmock: 
-    version: 1.3.4
 - webrat: 
     version: 0.7.1
-hash: 1b546d7b1204336db0ac761516073c50155a9607
+hash: 5d1e1bdf34632ed3851bf9e4f08058a6cb948314
 sources: 
 - Rubygems: 
     uri: http://rubygems.org
