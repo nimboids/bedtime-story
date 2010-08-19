@@ -1,1 +1,12 @@
-.container {padding:0.4em!important}
+body {font-family:"Helvetica Neue",arial,helvetica,clean,sans-serif!important}
+.container {padding:0.4em}
+.header {border-bottom:1px solid #ab9b84;margin-bottom:1em;padding-bottom:0.5em}
+.header img {margin-right:2em}
+h1 {display:inline;font-size:24pt;color:#535249}
+.sidebar > .container {background:#5296ce;border:1px solid #04205f;color:white}
+ul.links li {list-style-type:none;margin:2em auto;text-align:center}
+ul.links a {font-weight: bold; font-size:110%}
+ul.links a:link, ul.links a:visited {text-decoration:none; color:white}
+ul.links a:hover:link, ul.links a:active {text-decoration:underline; color:#ab9b84}
+.footer {border-top:1px solid #ab9b84;margin-top:1em;padding-bottom:0.5em}
+.footer p {text-align:center;font-size:80%}
