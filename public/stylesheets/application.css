@@ -1,8 +1,9 @@
 body {font-family:"Helvetica Neue",arial,helvetica,clean,sans-serif!important}
 .container {padding:0.4em}
-.header {border-bottom:1px solid #ab9b84;margin-bottom:1em;padding-bottom:0.5em}
-.header img {margin-right:2em}
-h1 {display:inline;font-size:24pt;color:#535249}
+#top {padding-top:0}
+.header {height:150px;background:white url('/images/aslongasittakes-logo.gif') no-repeat left top}
+.header img.logo {margin:20px 20px 0 0;float:right}
+h1 {margin:20px 0 0 100px;vertical-align:top;font-size:30pt;color:#535249}
 .sidebar .container {background-color:#5296ce;border:1px solid #04205f;color:white}
 ul.links {margin:0}
 ul.links li {list-style-type:none;margin:2em auto;text-align:center}
