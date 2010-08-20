@@ -2,9 +2,9 @@ body {font-family:"Helvetica Neue",arial,helvetica,clean,sans-serif!important}
 .container {padding:0.4em}
 .header {border-bottom:1px solid #ab9b84;margin-bottom:1em;padding-bottom:0.5em}
 .header img {margin-right:2em}
-.header a {text-decoration:none}
-.header a:hover h1 {color:#04205f}
-h1 {display:inline;font-size:24pt;color:#535249}
+.header a:link, .header a:visited {text-decoration:none;color:#535249}
+.header a:hover, .header a:active {color:#04205f}
+h1 {display:inline;font-size:24pt}
 .sidebar .container {background-color:#5296ce;border:1px solid #04205f;color:white}
 ul.links {margin:0}
 ul.links li {list-style-type:none;margin:2em auto;text-align:center}
