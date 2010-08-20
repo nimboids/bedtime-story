@@ -5,5 +5,5 @@ Feature: Static pages
     Then the page title should be "Byte Night Bedtime Story"
     And I follow "Byte night stories"
     Then the page title should be "Byte Night Bedtime Story – Stories"
-    When I follow "Bedtime Story"
+    When I follow "Home"
     Then I should be on the home page
