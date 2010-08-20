@@ -6,6 +6,7 @@ gem "rails", "2.3.8"
 gem "elastic_rails"
 
 group :plugins do
+  gem "inherited_resources", "1.0.6"
 end
 
 group :development, :test do
