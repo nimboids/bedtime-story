@@ -4,58 +4,43 @@
   <head>
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
     <title><%= title %></title>
-    <link rel="stylesheet" href="stylesheets/elastic.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="stylesheets/elastic.print.css" type="text/css" media="print" />
-    <link rel="stylesheet" href="stylesheets/application.css" type="text/css" media="screen, print" />
-    <script type="text/javascript" src="javascripts/jquery.js"></script>
-    <script type="text/javascript" src="javascripts/elastic.js"></script>
+    <%= stylesheet_link_tag :all, :cache => true %>
   </head>
   <body>
-    <div class="unit">
-      <div class="container vertical-center" id="top">
-        <div class="unit header">
-          <div class="container">
-            <a href="http://www.actionforchildren.org.uk/"><img src="images/action-for-children.png" alt="Action for Children" class="logo" /></a>
-            <a href="http://www.bytenight.org.uk/"><img src="images/byte-night.png" alt="Byte Night 2010" class="logo" /></a>
-            <h1><img src="/images/bedtime-story.png" alt="Bedtime Story" /></h1>
-          </div>
-        </div>
-        <div class="unit body">
-          <div class="columns on-3 same-height left">
-            <div class="column fixed sidebar" style="width:10em">
-              <div class="container full-height">
-                <ul class="links">
-                  <li><%= link_to "Home", :root %></li>
-                  <li><%= link_to "Byte Night stories", :page => :stories %></li>
-                  <li><a href="javascript:alert('Not yet implemented')">Hints and tips</a></li>
-                  <li><a href="javascript:alert('Not yet implemented')">Ideas to get you started</a></li>
-                  <li><a href="javascript:alert('Not yet implemented')">Top ten bedtime story words</a></li>
-                  <li><a href="javascript:alert('Not yet implemented')">Famous contributors</a></li>
-              </ul>
-              </div>
-            </div>
-            <div class="column elastic content">
-              <div class="container full-height">
-                <%= yield %>
-              </div>
-            </div>
-            <div class="column fixed sidebar right" style="width:10em">
-              <div class="container full-height">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.  Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="unit footer">
-          <div class="container">
-            <p>Registered charity nos. 1097940/SC038092. Company no. 4764232.
-              |
-              <a href="javascript:alert('Not yet implemented')">Privacy Policy</a>
-              |
-              <a href="javascript:alert('Not yet implemented')">Terms &amp; conditions</a>
-              </p>
-          </div>
-        </div>
+    <div id="header" class="container_12">
+      <div id="" class="grid_12 ">
+        <a href="http://www.actionforchildren.org.uk/"><img src="images/action-for-children.png" alt="Action for Children" class="logo" /></a>
+        <a href="http://www.bytenight.org.uk/"><img src="images/byte-night.png" alt="Byte Night 2010" class="logo" /></a>
+        <h1><img src="/images/bedtime-story.png" alt="Bedtime Story" /></h1>
+      </div>
+    </div>
+    <div id="content" class="container_12">
+      <div id="left_sidebar" class="grid_2 sidebar">
+        <ul class="links">
+          <li><%= link_to "Home", :root %></li>
+          <li><%= link_to "Byte Night stories", :page => :stories %></li>
+          <li><a href="javascript:alert('Not yet implemented')">Hints and tips</a></li>
+          <li><a href="javascript:alert('Not yet implemented')">Ideas to get you started</a></li>
+          <li><a href="javascript:alert('Not yet implemented')">Top ten bedtime story words</a></li>
+          <li><a href="javascript:alert('Not yet implemented')">Famous contributors</a></li>
+        </ul>
+      </div>
+      <div id="main" class="grid_8 ">
+        <%= yield %>
+      </div>
+      <div id="right_sidebar" class="grid_2 sidebar">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.  Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+      </div>
+    </div>
+    <div class="clear"></div>
+    <div id="footer" class="container_12">
+      <div id="" class="grid_12 ">
+        <p>Registered charity nos. 1097940/SC038092. Company no. 4764232.
+          |
+          <a href="javascript:alert('Not yet implemented')">Privacy Policy</a>
+          |
+          <a href="javascript:alert('Not yet implemented')">Terms &amp; conditions</a>
+        </p>
       </div>
     </div>
   </body>

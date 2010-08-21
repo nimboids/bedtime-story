@@ -1,22 +1,21 @@
-body {background-image:url('/images/starry-sky.jpg');background-repeat:repeat;font-family:"Helvetica Neue",arial,helvetica,clean,sans-serif!important}
-.container {padding:0.4em}
+body {background: black url('/images/starry-sky.jpg') repeat top left!important;color:white}
 #top {padding-top:0}
-.header {height:150px;background-image:url('/images/aslongasittakes-logo.png');background-repeat:no-repeat;background-position:top left}
-.header img.logo {margin:5px 20px 0 0;float:right}
-h1 {margin:20px 0 0 100px;vertical-align:top;font-size:30pt;color:#535249}
-.sidebar .container {background-color:#5296ce;border:1px solid #04205f;color:white}
-.content .container {padding-left:1em;padding-right:1em}
+#header {height:150px;background-image:url('/images/aslongasittakes-logo.png');background-repeat:no-repeat;background-position:top left}
+#header img.logo {margin:5px 20px 0 0;float:right}
+h1 {margin:20px 0 0 100px!important;vertical-align:top;font-size:40px;color:#535249}
+.sidebar {background-color:#5296ce;color:white}
+.sidebar p {margin:5px}
 ul.links {margin:0}
 ul.links li {list-style-type:none;margin:2em auto;text-align:center}
 ul.links a {font-weight: bold; font-size:110%}
 ul.links a {text-decoration:none}
 ul.links a:link, ul.links a:visited {color:white}
 ul.links a:hover, ul.links a:active {color:#ab9b84}
-#story {background-color:white;border-top:1px solid #535249;padding:0.5em 0}
+#story {background-color:white;color:#535249;border-top:1px solid #535249;padding:0.5em 0}
 #story p#opening {font-weight:bold;font-size:120%}
 #story p {margin-bottom:0.5em;text-align:center}
 #contribution label {font-size:120%;font-weight:bold;color:white}
 #contribution textarea {width:100%;height:4em}
 #contribution input {margin-top:1em}
-.footer {border-top:1px solid #ab9b84;margin-top:1em;padding-bottom:0.5em}
-.footer p {color:white;text-align:center;font-size:80%}
+#footer {border-top:1px solid #ab9b84;margin-top:1em;padding-bottom:0.5em}
+#footer p {color:white;text-align:center;font-size:80%}
