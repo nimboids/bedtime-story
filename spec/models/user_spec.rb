@@ -10,6 +10,6 @@ describe User do
   it { should have_db_column(:updated_at).of_type(:datetime)}
 
   it "should act as authentic" do
-    User.included_modules.should include(Authlogic::ActsAsAuthentic::Base)
+    User.included_modules.should include(Authlogic::ActsAsAuthentic::Password::Methods)
   end
 end

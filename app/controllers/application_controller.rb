@@ -6,5 +6,17 @@ class ApplicationController < ActionController::Base
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
 
   # Scrub sensitive parameters from your log
-  # filter_parameter_logging :password
+  filter_parameter_logging :password
+
+  helper_method :current_user
+
+  def current_user
+    @current_user = current_user_session.try :record
+  end
+
+  private
+
+  def current_user_session
+    @current_user_session ||= UserSession.find
+  end
 end
