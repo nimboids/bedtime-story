@@ -9,6 +9,10 @@ dependencies:
     group: 
     - :default
     version: = 2.3.8
+  authlogic: 
+    group: 
+    - :default
+    version: ">= 0"
   roodi: 
     group: 
     - :development
@@ -91,6 +95,8 @@ specs:
     version: 2.3.8
 - activeresource: 
     version: 2.3.8
+- authlogic: 
+    version: 2.1.6
 - builder: 
     version: 2.1.2
 - configuration: 
@@ -155,7 +161,7 @@ specs:
     version: 0.8.4
 - webrat: 
     version: 0.7.1
-hash: 4f2ed2d409f8b1449898b58bef396eac2f23b048
+hash: 31bc02f7426616dd7142f882e50899d9ec55bd5f
 sources: 
 - Rubygems: 
     uri: http://rubygems.org

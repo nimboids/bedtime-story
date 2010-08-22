@@ -4,6 +4,7 @@ source "http://rubygems.org"
 gem "postgres"
 gem "rails", "2.3.8"
 gem "elastic_rails"
+gem "authlogic"
 
 group :plugins do
   gem "inherited_resources", "1.0.6"
