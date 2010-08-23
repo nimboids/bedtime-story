@@ -6,11 +6,7 @@ h1 {margin:20px 0 0 100px!important;vertical-align:top;font-size:40px;color:#535
 .sidebar {background-image:url('/images/sidebar.png');height:500px;color:#535249}
 .sidebar p {margin:10px}
 ul.links {margin:0}
-ul.links li {list-style-type:none;margin:2em auto;text-align:center}
-ul.links a {font-weight: bold; font-size:110%}
-ul.links a {text-decoration:none}
-ul.links a:link, ul.links a:visited {color:#535249}
-ul.links a:hover, ul.links a:active {color:#ab9b84}
+ul.links li {list-style-type:none;margin:0 auto;text-align:center}
 #story {background-color:white;color:#535249;border-top:1px solid #535249;padding:0.5em 0;height:10em;overflow:auto}
 #story p#opening {font-weight:bold;font-size:120%}
 #story p {margin-bottom:0.5em;text-align:center}

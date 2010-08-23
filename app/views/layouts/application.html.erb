@@ -16,17 +16,21 @@
       </div>
     </div>
     <div id="content" class="container_12">
-      <div id="left_sidebar" class="grid_3 sidebar">
+      <div id="left_sidebar" class="grid_2">
         <ul class="links">
-          <li><%= link_to "Home", :root %></li>
-          <li><%= link_to "Byte Night stories", :controller => :pages, :action => :show, :page => "stories" %></li>
-          <li><a href="javascript:alert('Not yet implemented')">Hints and tips</a></li>
-          <li><a href="javascript:alert('Not yet implemented')">Ideas to get you started</a></li>
-          <li><a href="javascript:alert('Not yet implemented')">Top ten bedtime story words</a></li>
-          <li><a href="javascript:alert('Not yet implemented')">Famous contributors</a></li>
+          <li><%= link_to image_tag("stories.png", :alt => "Byte Night stories"),
+            :controller => :pages, :action => :show, :page => "stories" %></li>
+          <li><%= link_to image_tag("hints.png", :alt => "Hints and tips"),
+            :controller => :pages, :action => :show, :page => "hints" %></li>
+          <li><%= link_to image_tag("ideas.png", :alt => "Ideas to get you started"),
+            :controller => :pages, :action => :show, :page => "ideas" %></li>
+          <li><%= link_to image_tag("words.png", :alt => "Top 10 bedtime story words"),
+            :controller => :pages, :action => :show, :page => "words" %></li>
+          <li><%= link_to image_tag("famous.png", :alt => "Famous contributors"),
+            :controller => :pages, :action => :show, :page => "famous" %></li>
         </ul>
       </div>
-      <div id="main" class="grid_6 ">
+      <div id="main" class="grid_7 ">
         <%= yield %>
       </div>
       <div id="right_sidebar" class="grid_3 sidebar">
