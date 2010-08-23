@@ -1,9 +1,17 @@
-<div id="story">
-  <p id="opening">Once upon a time...</p>
-  <%= render :partial => "story_contribution" , :collection => @story_contributions %>
-</div>
 <% form_for :story_contribution, :url => {:controller => "story_contributions", :action => "create"}, :html => {:id => "contribution"} do |f| %>
+  <label>The story so far&hellip;</label>
+  <div id="story">
+    <p id="opening">Once upon a time...</p>
+    <%= render :partial => "story_contribution" , :collection => @story_contributions %>
+  </div>
   <%= f.label :text, "Your contribution" %>:
   <%= f.text_area :text, :rows => 4, :cols => 50 %>
   <%= f.submit "Submit" %>
 <% end %>
+
+<script language="javascript" type="text/javascript">
+  window.onload=function(){
+    var storyDiv = document.getElementById("story");
+    storyDiv.scrollTop = storyDiv.scrollHeight;
+  }
+</script>  
