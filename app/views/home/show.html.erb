@@ -1,10 +1,14 @@
 <% form_for :story_contribution, :url => {:controller => "story_contributions", :action => "create"}, :html => {:id => "contribution"} do |f| %>
   <label>The story so far&hellip;</label>
-  <div id="story">
-    <p id="opening">Once upon a time...</p>
-    <%= render :partial => "story_contribution" , :collection => @story_contributions %>
+  <div id="book">
+    <div id="story">
+      <p id="opening">Once upon a time...</p>
+      <%= render :partial => "story_contribution" , :collection => @story_contributions %>
+    </div>
   </div>
-  <%= f.label :text, "Your contribution" %>:
-  <%= f.text_area :text, :rows => 4, :cols => 50 %>
+  <%= f.label :text, "Now, you continue the story" %>:
+  <div class="textarea_wrapper">
+    <%= f.text_area :text, :rows => 4, :cols => 50 %>
+  </div>
   <%= f.submit "Submit" %>
 <% end %>
