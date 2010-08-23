@@ -1,0 +1,6 @@
+<% semantic_form_for @user_session, :url => user_session_url do |form| -%>
+  <%= form.inputs :login, :password %>
+  <% form.buttons do %>
+    <%= form.commit_button :label => "Log in" %>
+  <% end -%>
+<% end -%>
