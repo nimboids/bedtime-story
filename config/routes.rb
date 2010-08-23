@@ -4,7 +4,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resource :user_session, :only => [:new, :create]
   map.logout "/user_session/destroy", :controller => :user_sessions, :action => :destroy
 
-  map.root :controller => "pages", :action => "show", :page => "home"
+  map.root :controller => "home", :action => "show"
 
   # catch-all pages route needs to be last
   map.connect "/:page", :controller => "pages", :action => "show"

@@ -19,7 +19,7 @@
       <div id="left_sidebar" class="grid_3 sidebar">
         <ul class="links">
           <li><%= link_to "Home", :root %></li>
-          <li><%= link_to "Byte Night stories", :page => :stories %></li>
+          <li><%= link_to "Byte Night stories", :controller => :pages, :action => :show, :page => "stories" %></li>
           <li><a href="javascript:alert('Not yet implemented')">Hints and tips</a></li>
           <li><a href="javascript:alert('Not yet implemented')">Ideas to get you started</a></li>
           <li><a href="javascript:alert('Not yet implemented')">Top ten bedtime story words</a></li>

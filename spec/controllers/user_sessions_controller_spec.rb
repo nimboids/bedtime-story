@@ -10,7 +10,7 @@ describe UserSessionsController do
 
   describe "creating" do
     before do
-      @user_session = mock UserSession, :null_object => true
+      @user_session = mock UserSession, :id => 123, :null_object => true
       UserSession.stub(:new).and_return @user_session
       @params = {:login => "fred", :password => "secret"}.with_indifferent_access
     end
@@ -42,7 +42,7 @@ describe UserSessionsController do
 
       it "re-renders the login page" do
         do_post
-        response.should render_template "new"
+        response.should render_template("new")
       end
     end
   end
