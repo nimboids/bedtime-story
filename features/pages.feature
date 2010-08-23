@@ -7,3 +7,11 @@ Feature: Static pages
     Then the page title should be "Byte Night Bedtime Story – Stories"
     When I follow "Home"
     Then I should be on the home page
+
+  Scenario: Getting back to the home page
+    Given I am on the stories page
+    When I follow "Home"
+    Then I should be on the home page
+    Given I am on the stories page
+    When I follow "Bedtime Story"
+    Then I should be on the home page

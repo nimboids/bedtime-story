@@ -8,9 +8,10 @@ module NavigationHelpers
   def path_to(page_name)
     case page_name
 
-    when /the home\s?page/i then '/'
-    when /the admin page/i then '/admin'
-    when /the login page/i then '/user_session/new'
+    when /the home\s?page/i then root_path
+    when /the admin page/i then admin_index_path
+    when /the login page/i then new_user_session_path
+    when /the (.*) page/i then page_path(:page => $1)
 
     else
       begin
