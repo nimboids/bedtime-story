@@ -12,7 +12,6 @@ task :default => [:clean, :'db:migrate:all'] do
     ENV['RAILS_ENV'] = 'test'
     # don't do these as dependencies, otherwise the ensure block never gets called
     system 'rake report_stats' # creates empty file if run in same process
-    Rake::Task['code:trailing_spaces'].invoke
     Rake::Task['spec:rcov'].invoke
     Rake::Task['spec:verify_rcov'].invoke
     Rake::Task['roodi'].invoke

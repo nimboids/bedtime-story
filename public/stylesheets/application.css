@@ -3,6 +3,7 @@ body {background: black url('/images/starry-sky.jpg') repeat top left!important;
 #header {height:150px;background-image:url('/images/aslongasittakes-logo.png');background-repeat:no-repeat;background-position:top left}
 #header img.logo {margin:15px 0 0 20px;float:right}
 h1 {margin:20px 0 0 100px!important;vertical-align:top;font-size:40px;color:#535249}
+a {color:white}
 .sidebar {background-image:url('/images/sidebar.png');height:500px;color:#535249}
 .sidebar p {margin:10px}
 ul.links {margin:0}

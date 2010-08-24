@@ -16,6 +16,13 @@ describe AdminController do
     context "when logged in" do
       before do
         controller.stub(:current_user).and_return stub(User)
+        @contributions = mock :contributions
+        StoryContribution.stub(:awaiting_approval).and_return @contributions
+      end
+
+      it "retrieves a list of unapproved contributions" do
+        get :index
+        assigns[:story_contributions].should == @contributions
       end
 
       it "renders the index template" do

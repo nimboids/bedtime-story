@@ -19,4 +19,8 @@ class ApplicationController < ActionController::Base
   def current_user_session
     @current_user_session ||= UserSession.find
   end
+
+  def authenticate
+    redirect_to new_user_session_url unless current_user
+  end
 end

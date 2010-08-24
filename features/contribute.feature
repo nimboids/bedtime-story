@@ -1,7 +1,7 @@
 Feature: Contributing to the story
 
   Scenario: Moderated contribution
-    Given I go to the home page
+    When I go to the home page
     Then the story should be:
       | Once upon a time... |
     When I fill in "Now, you continue the story" with "there was a castle on the hill"
