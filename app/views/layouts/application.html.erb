@@ -30,13 +30,10 @@
             :controller => :pages, :action => :show, :page => "famous" %></li>
         </ul>
       </div>
-      <div id="main" class="grid_7 ">
-        <%- flash.each do |name, msg| -%>
-          <%= content_tag :div, msg, :id => "flash_#{name}" %>
-        <%- end -%>
+      <div id="main" class="grid_8 ">
         <%= yield %>
       </div>
-      <div id="right_sidebar" class="grid_3 sidebar">
+      <div id="right_sidebar" class="grid_2 sidebar">
         <p>Countdown timer of some sort will go here</p>
       </div>
     </div>

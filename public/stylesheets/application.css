@@ -8,14 +8,16 @@ a {color:white}
 .sidebar p {margin:10px}
 ul.links {margin:0}
 ul.links li {list-style-type:none;margin:0 auto;text-align:center}
-#flash_notice {width:100%;height:80px;background-image:url('/images/flash_notice.png');background-repeat:no-repeat;color:#535249;font-size:120%;text-align:center;padding:10px}
-#book {height:303px;background-image:url('/images/book.png');background-repeat:no-repeat;padding-top:25px}
-#story {color:#222;height:200px;width:350px;margin:0 auto 0 auto;overflow:auto}
+#flash_notice, #flash_error {width:100%;height:80px;margin-top:1em;background-repeat:no-repeat;color:black;font-size:120%;text-align:center;padding:10px}
+#flash_notice {background-image:url('/images/flash_notice.png')}
+#flash_error {background-image:url('/images/flash_error.png')}
+#book {height:344px;background-image:url('/images/book.png');background-repeat:no-repeat}
+#story {color:#222;height:260px;width:260px;margin-left:320px;position:relative;top:30px;overflow:auto}
 #story p#opening {font-weight:bold;font-size:120%}
-#story p {margin-bottom:0.5em;text-align:center}
+#story p {margin:0 0.5em 0.5em 0.5em;text-align:center}
 #contribution label {font-size:120%;font-weight:bold;color:white}
 #contribution .textarea_wrapper {height:80px;background-image:url('/images/textarea.png');background-repeat:no-repeat}
-#contribution textarea {width:515px;height:55px;margin:10px;border:none}
+#contribution textarea {width:595px;height:55px;margin:10px;border:none;font-size:120%}
 #contribution input {margin-top:1em}
 #footer {border-top:1px solid #ab9b84;margin-top:1em;padding-bottom:0.5em}
 #footer p {color:white;text-align:center;font-size:80%}
