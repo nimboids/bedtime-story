@@ -13,5 +13,10 @@ describe StoryContributionsController do
       post :create
       response.should redirect_to root_url
     end
+
+    it "puts a message in the flash" do
+      post :create
+      flash[:notice].should == "Thank you! Your contribution is awaiting moderation"
+    end
   end
 end

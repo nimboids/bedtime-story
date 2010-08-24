@@ -4,10 +4,10 @@ describe HomeController do
   describe "show" do
     before do
       @story_contributions = mock
-      StoryContribution.stub(:all).and_return @story_contributions
+      StoryContribution.stub(:approved).and_return @story_contributions
     end
 
-    it "retrieves the story so far" do
+    it "retrieves all approved story contributions" do
       get :show
       assigns[:story_contributions].should == @story_contributions
     end
