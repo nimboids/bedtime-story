@@ -15,7 +15,6 @@ class StoryContributionsController < InheritedResources::Base
   end
 
   def approve
-    require "pp"
     StoryContribution.update params[:story_contribution_id], :approver => current_user
     StoryContribution.awaiting_approval.each do |story_contribution|
       story_contribution.rejected = true

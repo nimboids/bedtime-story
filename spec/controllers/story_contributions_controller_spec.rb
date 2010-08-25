@@ -1,4 +1,4 @@
-require 'spec_helper'
+require "spec_helper"
 
 describe StoryContributionsController do
   # need to test with integrated views here for inherited resources
@@ -10,14 +10,14 @@ describe StoryContributionsController do
 
   describe "creating" do
     before do
-      @story_contribution = mock_model StoryContribution#, :stringify_keys => ''
       @errors = ActiveRecord::Errors.new @story_contribution
+      @story_contribution = mock_model StoryContribution, :errors => @errors, :null_object => true
+      StoryContribution.stub(:new).and_return @story_contribution
     end
 
     describe "when successful" do
       before do
         @story_contribution.stub(:save).and_return(true)
-        @story_contribution.stub(:errors).and_return(@errors)
       end
 
       it "redirects to the home page" do
@@ -33,18 +33,19 @@ describe StoryContributionsController do
 
     describe "when a failure" do
       before do
-        @errors.add :text, 'some error'
-        @story_contribution.stub(:errors).and_return(@errors)
+        @messages = stub :messages
+        @errors.stub(:full_messages).and_return @messages
+        @errors.stub(:empty?).and_return false
       end
 
       it "redirects to the home page" do
         post :create
-        response.should render_template('home/show.html.erb')
+        response.should render_template("home/show.html.erb")
       end
 
       it "puts a message in the flash" do
         post :create
-        flash[:error].should == @errors.full_messages
+        flash[:errors].should == @messages
       end
     end
   end
