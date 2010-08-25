@@ -9,9 +9,9 @@ a {color:white}
 .sidebar p {margin:10px}
 ul.links {margin:0}
 ul.links li {list-style-type:none;margin:0 auto;text-align:center}
-#flash_notice, #flash_error {width:100%;height:80px;margin-top:1em;background-repeat:no-repeat;color:black;font-size:120%;text-align:center;padding:10px}
+#flash_notice, #flash_errors {width:100%;height:80px;margin-top:1em;background-repeat:no-repeat;color:black;font-size:120%;text-align:center;padding:10px}
 #flash_notice {background-image:url('/images/flash_notice.png')}
-#flash_error {background-image:url('/images/flash_error.png')}
+#flash_errors {background-image:url('/images/flash_error.png')}
 #book {height:344px;background-image:url('/images/book.png');background-repeat:no-repeat}
 #story {color:#222;height:260px;width:260px;margin-left:320px;position:relative;top:30px;overflow:auto}
 #story p#opening {font-weight:bold;font-size:120%}

@@ -9,14 +9,43 @@ describe StoryContributionsController do
   end
 
   describe "creating" do
-    it "redirects to the home page" do
-      post :create
-      response.should redirect_to root_url
+    before do
+      @story_contribution = mock_model StoryContribution#, :stringify_keys => ''
+      @errors = ActiveRecord::Errors.new @story_contribution
     end
 
-    it "puts a message in the flash" do
-      post :create
-      flash[:notice].should == "Thank you! Your contribution is awaiting moderation"
+    describe "when successful" do
+      before do
+        @story_contribution.stub(:save).and_return(true)
+        @story_contribution.stub(:errors).and_return(@errors)
+      end
+
+      it "redirects to the home page" do
+        post :create
+        response.should redirect_to root_url
+      end
+
+      it "puts a message in the flash" do
+        post :create
+        flash[:notice].should == "Thank you! Your contribution is awaiting moderation"
+      end
+    end
+
+    describe "when a failure" do
+      before do
+        @errors.add :text, 'some error'
+        @story_contribution.stub(:errors).and_return(@errors)
+      end
+
+      it "redirects to the home page" do
+        post :create
+        response.should render_template('home/show.html.erb')
+      end
+
+      it "puts a message in the flash" do
+        post :create
+        flash[:error].should == @errors.full_messages
+      end
     end
   end
 
