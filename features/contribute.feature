@@ -13,3 +13,16 @@ Feature: Contributing to the story
     Then the story should be:
       | Once upon a time...            |
       | there was a castle on the hill |
+
+  Scenario: A 140 character story contribution
+    When I go to the home page
+    And I fill in "Now, you continue the story" with a 140 character string
+    And I press "Submit"
+    Then I should see "Your contribution is awaiting moderation"
+
+  Scenario: A 141 character story contribution
+    When I go to the home page
+    And I fill in "Now, you continue the story" with a 141 character string
+    And I press "Submit"
+    Then I should see "Text is too long (maximum is 140 characters)"
+
