@@ -18,18 +18,12 @@
     <div id="content" class="container_12">
       <div id="left_sidebar" class="grid_2">
         <ul class="links">
-          <li><%= link_to image_tag("home.png", :alt => "Home"),
-            :controller => :home, :action => :show %></li>
-          <li><%= link_to image_tag("stories.png", :alt => "Byte Night stories"),
-            :controller => :pages, :action => :show, :page => "stories" %></li>
-          <li><%= link_to image_tag("hints.png", :alt => "Hints and tips"),
-            :controller => :pages, :action => :show, :page => "hints" %></li>
-          <li><%= link_to image_tag("ideas.png", :alt => "Ideas to get you started"),
-            :controller => :pages, :action => :show, :page => "ideas" %></li>
-          <li><%= link_to image_tag("words.png", :alt => "Top 10 bedtime story words"),
-            :controller => :pages, :action => :show, :page => "words" %></li>
-          <li><%= link_to image_tag("famous.png", :alt => "Famous contributors"),
-            :controller => :pages, :action => :show, :page => "famous" %></li>
+          <%= link_to_home %>
+          <%= link_to_page "stories", "Byte Night stories" %>
+          <%= link_to_page "hints", "Hints and tips" %>
+          <%= link_to_page "ideas", "Ideas to get you started" %>
+          <%= link_to_page "words", "Top 10 bedtime story words" %>
+          <%= link_to_page "famous", "Famous contributors" %>
         </ul>
       </div>
       <div id="main" class="grid_8 ">
