@@ -13,5 +13,11 @@ Feature: Home page and static information pages
     Then the page title should be "Byte Night Bedtime Story – Top 10 Bedtime Story Words"
     And I follow "Famous contributors"
     Then the page title should be "Byte Night Bedtime Story – Famous Contributors"
+
+  Scenario: Getting back home
+    Given I am on the stories page
+    When I follow "Home"
+    Then I should be on the home page
+    Given I am on the stories page
     When I follow "Bedtime Story"
     Then I should be on the home page

@@ -18,6 +18,8 @@
     <div id="content" class="container_12">
       <div id="left_sidebar" class="grid_2">
         <ul class="links">
+          <li><%= link_to image_tag("home.png", :alt => "Home"),
+            :controller => :home, :action => :show %></li>
           <li><%= link_to image_tag("stories.png", :alt => "Byte Night stories"),
             :controller => :pages, :action => :show, :page => "stories" %></li>
           <li><%= link_to image_tag("hints.png", :alt => "Hints and tips"),
