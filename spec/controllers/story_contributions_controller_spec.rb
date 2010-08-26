@@ -16,10 +16,6 @@ describe StoryContributionsController do
     end
 
     describe "when successful" do
-      before do
-        @story_contribution.stub(:save).and_return(true)
-      end
-
       it "redirects to the home page" do
         post :create
         response.should redirect_to root_url
