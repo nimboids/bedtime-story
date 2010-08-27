@@ -8,7 +8,7 @@
   <%= content_tag :div, msg, :id => "flash_#{name}" %>
 <%- end -%>
 <% form_for :story_contribution, :url => {:controller => "story_contributions", :action => "create"}, :html => {:id => "contribution"} do |f| %>
-  <%= f.label :text, "Now, you continue the story" %>:
+  <%= f.label :text, "Now, you continue the story, in 140 characters or fewer" %>:
   <div class="textarea_wrapper">
     <%= f.text_area :text, :rows => 4, :cols => 50 %>
   </div>
