@@ -40,3 +40,4 @@ a#famous_active, a#famous_inactive:hover, a#famous_inactive:active {background-i
 #footer {border-top:1px solid #ab9b84;margin-top:1em;padding-bottom:0.5em}
 #footer p {color:white;text-align:center;font-size:80%}
 #footer a {color:white}
+.hidden {display:none}

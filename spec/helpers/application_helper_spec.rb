@@ -86,4 +86,13 @@ describe ApplicationHelper do
     </div>)
     end
   end
+
+  describe "preloading images" do
+    it "renders images for *-active.png, with class 'hidden'" do
+      html = helper.preload_images
+      Dir["#{RAILS_ROOT}/public/images/*-active.png"].each do |file|
+        html.should have_tag("img.hidden[src='/images/#{File.basename file}'][alt=""][class='hidden']")
+      end
+    end
+  end
 end

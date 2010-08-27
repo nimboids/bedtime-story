@@ -40,4 +40,10 @@ module ApplicationHelper
       <div class="text">seconds</div>
     </div>)
   end
+
+  def preload_images
+    Dir["#{RAILS_ROOT}/public/images/*-active.png"].map do |file|
+      %(<img src="/images/#{File.basename file}" alt="" class="hidden" />)
+    end.join "\n"
+  end
 end
