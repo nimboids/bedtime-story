@@ -9,6 +9,11 @@ describe ApplicationController do
       post :dummy, :foo => {:password => "secret", :password_confirmation => "secret"}
   end
 
+  it "assigns the finish date for the view" do
+    get :dummy 
+    assigns[:finish_date].should == ApplicationController::FINISH_DATE
+  end
+
   describe "current user" do
     context "when there is no user session" do
       before do

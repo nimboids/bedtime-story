@@ -69,4 +69,21 @@ describe ApplicationHelper do
       end
     end
   end
+
+  describe "generating a countdown" do
+    it "formats a datetime" do
+      days, hours, minutes, seconds = 1, 2, 3, 4
+      days_fraction = Rational((days * 86400) + (hours * 3600) + (minutes * 60) + seconds,86400)
+      helper.formatted_countdown(days_fraction).should == %(<div class="countdown">
+      <div class="number" id="countdown_days">#{days}</div>
+      <div class="text">days</div>
+      <div class="number" id="countdown_hours">#{hours}</div>
+      <div class="text">hours</div>
+      <div class="number" id="countdown_minutes">#{minutes}</div>
+      <div class="text">minutes</div>
+      <div class="number" id="countdown_seconds">#{seconds}</div>
+      <div class="text">seconds</div>
+    </div>)
+    end
+  end
 end

@@ -13,7 +13,12 @@ dependencies:
     group: 
     - :default
     version: ">= 0"
-  roodi: 
+  timecop: 
+    group: 
+    - :development
+    - :test
+    version: ">= 0"
+  shoulda: 
     group: 
     - :development
     - :test
@@ -22,12 +27,7 @@ dependencies:
     group: 
     - :default
     version: ">= 0"
-  shoulda: 
-    group: 
-    - :development
-    - :test
-    version: ">= 0"
-  rspec: 
+  roodi: 
     group: 
     - :development
     - :test
@@ -36,7 +36,12 @@ dependencies:
     group: 
     - :plugins
     version: = 1.0.6
-  database_cleaner: 
+  rspec: 
+    group: 
+    - :development
+    - :test
+    version: ">= 0"
+  rspec-rails: 
     group: 
     - :development
     - :test
@@ -45,22 +50,12 @@ dependencies:
     group: 
     - :default
     version: ">= 0"
-  rspec-rails: 
+  database_cleaner: 
     group: 
     - :development
     - :test
     version: ">= 0"
-  factory_girl: 
-    group: 
-    - :development
-    - :test
-    version: ">= 0"
-  rcov: 
-    group: 
-    - :development
-    - :test
-    version: ">= 0"
-  heroku: 
+  webrat: 
     group: 
     - :development
     - :test
@@ -70,7 +65,17 @@ dependencies:
     - :development
     - :test
     version: ">= 0"
-  webrat: 
+  heroku: 
+    group: 
+    - :development
+    - :test
+    version: ">= 0"
+  rcov: 
+    group: 
+    - :development
+    - :test
+    version: ">= 0"
+  factory_girl: 
     group: 
     - :development
     - :test
@@ -167,9 +172,11 @@ specs:
     version: 2.11.3
 - spork: 
     version: 0.8.4
+- timecop: 
+    version: 0.3.5
 - webrat: 
     version: 0.7.1
-hash: eaed076edc040eb394f3976e883f1b8d007cf2a4
+hash: bb70fef53e8b27d482b577d018913d699830410d
 sources: 
 - Rubygems: 
     uri: http://rubygems.org

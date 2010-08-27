@@ -24,4 +24,5 @@ group :development, :test do
   gem "factory_girl"
   gem "spork"
   gem "roodi"
+  gem "timecop"
 end

@@ -23,4 +23,21 @@ module ApplicationHelper
                  end
     %(<li><a href="/#{page}" id="#{link_class}"><span>#{label}</span></a>)
   end
+
+  def formatted_countdown day_fraction
+    full_hours, minutes, seconds, frac = Date.day_fraction_to_time(day_fraction)
+    days = full_hours/24
+    hours = full_hours%24
+
+    %(<div class="countdown">
+      <div class="number" id="countdown_days">#{days}</div>
+      <div class="text">days</div>
+      <div class="number" id="countdown_hours">#{hours}</div>
+      <div class="text">hours</div>
+      <div class="number" id="countdown_minutes">#{minutes}</div>
+      <div class="text">minutes</div>
+      <div class="number" id="countdown_seconds">#{seconds}</div>
+      <div class="text">seconds</div>
+    </div>)
+  end
 end

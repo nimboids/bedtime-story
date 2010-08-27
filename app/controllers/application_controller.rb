@@ -8,7 +8,16 @@ class ApplicationController < ActionController::Base
   # Scrub sensitive parameters from your log
   filter_parameter_logging :password
 
+  before_filter :finish_date
+
   helper_method :current_user
+  
+  # 23:59 - 30th Sept 2010
+  FINISH_DATE = Time.local(2010, 'sep', 30, 23, 59, 0).to_datetime
+
+  def finish_date
+    @finish_date = FINISH_DATE
+  end
 
   def current_user
     @current_user = current_user_session.try :record
