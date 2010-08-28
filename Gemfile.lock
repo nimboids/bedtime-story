@@ -23,6 +23,13 @@ dependencies:
     - :development
     - :test
     version: ">= 0"
+  celerity: 
+    group: 
+    - :development
+    - :test
+    version: ">= 0"
+    require: []
+
   elastic_rails: 
     group: 
     - :default
@@ -55,11 +62,6 @@ dependencies:
     - :development
     - :test
     version: ">= 0"
-  webrat: 
-    group: 
-    - :development
-    - :test
-    version: ">= 0"
   cucumber-rails: 
     group: 
     - :development
@@ -84,7 +86,17 @@ dependencies:
     group: 
     - :default
     version: ">= 0"
+  culerity: 
+    group: 
+    - :development
+    - :test
+    version: ">= 0"
   cucumber: 
+    group: 
+    - :development
+    - :test
+    version: ">= 0"
+  capybara: 
     group: 
     - :development
     - :test
@@ -108,6 +120,26 @@ specs:
     version: 2.1.6
 - builder: 
     version: 2.1.2
+- culerity: 
+    version: 0.2.12
+- mime-types: 
+    version: "1.16"
+- nokogiri: 
+    version: 1.4.3.1
+- rack-test: 
+    version: 0.5.4
+- ffi: 
+    version: 0.6.3
+- json_pure: 
+    version: 1.4.6
+- rubyzip: 
+    version: 0.9.4
+- selenium-webdriver: 
+    version: 0.0.28
+- capybara: 
+    version: 0.3.9
+- celerity: 
+    version: 0.8.0
 - configuration: 
     version: 1.1.0
 - diff-lcs: 
@@ -116,8 +148,6 @@ specs:
     version: 1.16.2
 - gherkin: 
     version: 2.1.5
-- json_pure: 
-    version: 1.4.6
 - term-ansicolor: 
     version: 1.0.5
 - cucumber: 
@@ -138,8 +168,6 @@ specs:
     version: 0.5.0
 - launchy: 
     version: 0.3.7
-- mime-types: 
-    version: "1.16"
 - rest-client: 
     version: 1.4.2
 - heroku: 
@@ -148,12 +176,8 @@ specs:
     version: 0.4.7
 - inherited_resources: 
     version: 1.0.6
-- nokogiri: 
-    version: 1.4.3.1
 - postgres: 
     version: 0.7.9.2008.01.28
-- rack-test: 
-    version: 0.5.4
 - rails: 
     version: 2.3.8
 - rcov: 
@@ -174,9 +198,7 @@ specs:
     version: 0.8.4
 - timecop: 
     version: 0.3.5
-- webrat: 
-    version: 0.7.1
-hash: bb70fef53e8b27d482b577d018913d699830410d
+hash: fb55158a15637df9b4741ee2025317472b6dced9
 sources: 
 - Rubygems: 
     uri: http://rubygems.org

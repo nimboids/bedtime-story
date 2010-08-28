@@ -16,7 +16,9 @@ group :development, :test do
   gem "cucumber"
   gem "cucumber-rails"
   gem "database_cleaner"
-  gem "webrat"
+  gem "capybara"
+  gem "culerity"
+  gem "celerity", :require => nil
   gem "rspec"
   gem "rspec-rails"
   gem "rcov"
