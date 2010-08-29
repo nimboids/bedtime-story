@@ -1,5 +1,10 @@
 Feature: Contributing to the story
 
+  @javascript
+  Scenario: Initial focus on page load
+    When I go to the home page
+    Then the cursor should be in the contribution field
+
   Scenario: Moderated contribution
     When I go to the home page
     Then the story should be:
