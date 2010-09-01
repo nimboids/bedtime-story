@@ -23,8 +23,10 @@ Feature: Contributing to the story
   Scenario: Live validation of text length
     When I go to the home page
     Then I should see "140 characters remaining" within ".valid"
-    When I fill in "Now, you continue the story" with "I"
+    When I fill in "Now, you continue the story" with a 1 character string
     Then I should see "139 characters remaining" within ".valid"
+    When I fill in "Now, you continue the story" with a 139 character string
+    Then I should see "1 character remaining" within ".valid"
 
   Scenario: A 0 character story contribution is rejected
     When I go to the home page

@@ -12,7 +12,12 @@ function scrollToEndOfStory() {
 }
 
 function updateCharactersRemaining(){
-  $("#characters_remaining").html((140 - $("#story_contribution_text")[0].value.length) +
-      " characters remaining");
+  var characters_remaining = 140 - $("#story_contribution_text")[0].value.length;
+  if (characters_remaining == 1) {
+    var text = characters_remaining + " character remaining"
+  } else {
+    var text = characters_remaining + " characters remaining"
+  }
+  $("#characters_remaining").html(text);
 }
 
