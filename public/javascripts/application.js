@@ -31,9 +31,11 @@ function updateCharactersRemaining(){
   if (characters_remaining < 0) {
     notice.addClass("invalid");
     notice.removeClass("valid");
+    $("#story_contribution_submit").attr("disabled", "disabled");
   } else {
     notice.addClass("valid");
     notice.removeClass("invalid");
+    $("#story_contribution_submit").removeAttr("disabled");
   }
 }
 
