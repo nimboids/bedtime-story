@@ -37,7 +37,7 @@ a#famous_active, a#famous_inactive:hover, a#famous_inactive:active {background-i
 #contribution label {font-size:120%;font-weight:bold;color:white}
 #contribution .textarea_wrapper {height:80px;background-image:url('/images/textarea.png');background-repeat:no-repeat}
 #contribution textarea {width:595px;height:55px;margin:10px;border:none;font-size:120%;font-family:'Helvetica Neue',Arial,'Liberation Sans',FreeSans,sans-serif}
-#contribution input {margin-top:1em}
+#contribution .valid {color:green;font-size:120%;font-weight:bold}
 #footer {border-top:1px solid #ab9b84;margin-top:1em;padding-bottom:0.5em}
 #footer p {color:white;text-align:center;font-size:80%}
 #footer a {color:white}

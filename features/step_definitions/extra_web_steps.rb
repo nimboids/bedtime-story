@@ -10,7 +10,3 @@ When %r/^I fill in "([^"]*)" with a (\d+) character string$/ do |field, characte
   string = characters.to_i.times.map{ 'a' }.join
   When %(I fill in "#{field}" with "#{string}")
 end
-
-Then %r/^the cursor should be in the contribution field$/ do
-  locate("#story_contribution_text").node.should be_focused
-end

@@ -19,6 +19,13 @@ Feature: Contributing to the story
       | Once upon a time...            |
       | there was a castle on the hill |
 
+  @javascript
+  Scenario: Live validation of text length
+    When I go to the home page
+    Then I should see "140 characters remaining" within ".valid"
+    When I fill in "Now, you continue the story" with "I"
+    Then I should see "139 characters remaining" within ".valid"
+
   Scenario: A 0 character story contribution is rejected
     When I go to the home page
     And I fill in "Now, you continue the story" with a 0 character string
