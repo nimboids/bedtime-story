@@ -13,11 +13,27 @@ function scrollToEndOfStory() {
 
 function updateCharactersRemaining(){
   var characters_remaining = 140 - $("#story_contribution_text")[0].value.length;
-  if (characters_remaining == 1) {
+  if (characters_remaining == -1) {
+    var text = -characters_remaining + " character too many";
+    var cls = "invalid";
+  } else if (characters_remaining < -1) {
+    var text = -characters_remaining + " characters too many";
+    var cls = "invalid";
+  } else if (characters_remaining == 1) {
     var text = characters_remaining + " character remaining"
+    var cls = "valid";
   } else {
     var text = characters_remaining + " characters remaining"
+    var cls = "valid";
   }
-  $("#characters_remaining").html(text);
+  var notice = $("#characters_remaining");
+  notice.html(text);
+  if (characters_remaining < 0) {
+    notice.addClass("invalid");
+    notice.removeClass("valid");
+  } else {
+    notice.addClass("valid");
+    notice.removeClass("invalid");
+  }
 }
 

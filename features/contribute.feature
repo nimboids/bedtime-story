@@ -27,6 +27,12 @@ Feature: Contributing to the story
     Then I should see "139 characters remaining" within ".valid"
     When I fill in "Now, you continue the story" with a 139 character string
     Then I should see "1 character remaining" within ".valid"
+    When I fill in "Now, you continue the story" with a 140 character string
+    Then I should see "0 characters remaining" within ".valid"
+    When I fill in "Now, you continue the story" with a 141 character string
+    Then I should see "1 character too many" within ".invalid"
+    When I fill in "Now, you continue the story" with a 182 character string
+    Then I should see "42 characters too many" within ".invalid"
 
   Scenario: A 0 character story contribution is rejected
     When I go to the home page
