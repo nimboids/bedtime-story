@@ -13,3 +13,4 @@ webrat*html
 *.swo
 *.swp
 .idea/**
+capybara-*.html
