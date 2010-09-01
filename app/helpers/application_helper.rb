@@ -12,7 +12,7 @@ module ApplicationHelper
 
   def link_to_home
     link_class = (controller.controller_name == "home") ? "home_active" : "home_inactive"
-    %(<li><a href="/" id="#{link_class}"><span>Home</span></a>)
+    %(<li><a href="/" id="#{link_class}"><span>Home</span></a></li>)
   end
 
   def link_to_page page, label
@@ -21,7 +21,7 @@ module ApplicationHelper
                  else
                    "#{page}_inactive"
                  end
-    %(<li><a href="/#{page}" id="#{link_class}"><span>#{label}</span></a>)
+    %(<li><a href="/#{page}" id="#{link_class}"><span>#{label}</span></a></li>)
   end
 
   def formatted_countdown day_fraction

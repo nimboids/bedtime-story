@@ -28,7 +28,7 @@ describe ApplicationHelper do
       end
 
       it "generates a link with an id of 'home_active'" do
-        helper.link_to_home.should == '<li><a href="/" id="home_active"><span>Home</span></a>'
+        helper.link_to_home.should == '<li><a href="/" id="home_active"><span>Home</span></a></li>'
       end
     end
 
@@ -38,7 +38,7 @@ describe ApplicationHelper do
       end
 
       it "generates a link with an id of 'home_inactive'" do
-        helper.link_to_home.should == '<li><a href="/" id="home_inactive"><span>Home</span></a>'
+        helper.link_to_home.should == '<li><a href="/" id="home_inactive"><span>Home</span></a></li>'
       end
     end
   end
@@ -55,7 +55,7 @@ describe ApplicationHelper do
       end
 
       it "generates a link with an id of '<page>_active'" do
-        helper.link_to_page("foo", "Foo Bar").should == '<li><a href="/foo" id="foo_active"><span>Foo Bar</span></a>'
+        helper.link_to_page("foo", "Foo Bar").should == '<li><a href="/foo" id="foo_active"><span>Foo Bar</span></a></li>'
       end
     end
 
@@ -65,7 +65,7 @@ describe ApplicationHelper do
       end
 
       it "generates a link with an id of '<page>_inactive'" do
-        helper.link_to_page("foo", "Foo Bar").should == '<li><a href="/foo" id="foo_inactive"><span>Foo Bar</span></a>'
+        helper.link_to_page("foo", "Foo Bar").should == '<li><a href="/foo" id="foo_inactive"><span>Foo Bar</span></a></li>'
       end
     end
   end
