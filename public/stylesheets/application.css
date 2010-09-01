@@ -21,8 +21,8 @@ a#stories_inactive:link, a#stories_inactive:visited {background-image:url('/imag
 a#stories_active, a#stories_inactive:hover, a#stories_inactive:active {background-image:url('/images/stories-active.png')}
 a#hints_inactive:link, a#hints_inactive:visited {background-image:url('/images/hints.png')}
 a#hints_active, a#hints_inactive:hover, a#hints_inactive:active {background-image:url('/images/hints-active.png')}
-a#words_inactive:link, a#words_inactive:visited {background-image:url('/images/words.png')}
-a#words_active, a#words_inactive:hover, a#words_inactive:active {background-image:url('/images/words-active.png')}
+a#phrases_inactive:link, a#phrases_inactive:visited {background-image:url('/images/phrases.png')}
+a#phrases_active, a#phrases_inactive:hover, a#phrases_inactive:active {background-image:url('/images/phrases-active.png')}
 a#famous_inactive:link, a#famous_inactive:visited {background-image:url('/images/famous.png')}
 a#famous_active, a#famous_inactive:hover, a#famous_inactive:active {background-image:url('/images/famous-active.png')}
 a#donate_inactive:link, a#donate_inactive:visited {background-image:url('/images/donate.png')}
