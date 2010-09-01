@@ -1,7 +1,8 @@
-$(document).ready(function(){
+$(document).ready(function() {
   scrollToEndOfStory();
   $("#story_contribution_text").keyup(updateCharactersRemaining);
   $("#story_contribution_text").focus();
+  setTimeout(updateCountdown, 1000);
 });
 
 function scrollToEndOfStory() {
@@ -11,8 +12,8 @@ function scrollToEndOfStory() {
   }
 }
 
-function updateCharactersRemaining(){
-  var characters_remaining = 140 - $("#story_contribution_text")[0].value.length;
+function updateCharactersRemaining() {
+  var characters_remaining = 140 - $("#story_contribution_text").html().length;
   if (characters_remaining == -1) {
     var text = -characters_remaining + " character too many";
     var cls = "invalid";
@@ -39,3 +40,26 @@ function updateCharactersRemaining(){
   }
 }
 
+function updateCountdown() {
+  var seconds = $("#countdown_seconds").html() - 1;
+  if (seconds < 0) {
+    seconds = 59;
+    var minutes = $("#countdown_minutes").html() - 1;
+    if (minutes < 0) {
+      minutes = 59;
+      var hours = $("#countdown_hours").html() - 1;
+      if (hours < 0) {
+        hours = 23;
+        var days = $("#countdown_days").html() - 1;
+        if (days < 0) {
+          days = 0;
+        }
+        $("#countdown_days").html(days);
+      }
+      $("#countdown_hours").html(hours);
+    }
+    $("#countdown_minutes").html(minutes);
+  }
+  $("#countdown_seconds").html(seconds);
+  setTimeout(updateCountdown, 1000);
+}

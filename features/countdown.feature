@@ -5,10 +5,23 @@ Feature: Countdown timer
     When I go to the home page
     Then I should see "34" within "#countdown_days"
     And I should see "days" within ".countdown"
-    Then I should see "9" within "#countdown_hours"
+    And I should see "9" within "#countdown_hours"
     And I should see "hours" within ".countdown"
-    Then I should see "59" within "#countdown_minutes"
+    And I should see "59" within "#countdown_minutes"
     And I should see "minutes" within ".countdown"
-    Then I should see "0" within "#countdown_seconds"
+    And I should see "0" within "#countdown_seconds"
     And I should see "seconds" within ".countdown"
 
+  @javascript
+  Scenario: Live countdown
+    Given I freeze time to 29/09/10 23:59:00
+    When I go to the home page
+    Then I should see "1" within "#countdown_days"
+    And I should see "0" within "#countdown_hours"
+    And I should see "0" within "#countdown_minutes"
+    And I should see "0" within "#countdown_seconds"
+    When I wait for 1.5 seconds
+    Then I should see "0" within "#countdown_days"
+    And I should see "23" within "#countdown_hours"
+    And I should see "59" within "#countdown_minutes"
+    And I should see "59" within "#countdown_seconds"
