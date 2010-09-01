@@ -4,7 +4,10 @@
   <head>
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
     <title><%= title %></title>
-    <%= stylesheet_link_tag :all, :cache => true %>
+    <%= stylesheet_link_tag "960", "formtastic", "reset", "text", "formtastic", "formtastic_changes", "application", :cache => true %>
+    <!--[if IE 6]>
+    <%= stylesheet_link_tag "960-ie", :cache => true %>
+    <![endif]-->
     <%= javascript_include_tag "jquery", "application", "google_analytics" %>
   </head>
   <body>

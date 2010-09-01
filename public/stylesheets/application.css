@@ -13,7 +13,7 @@ a {color:white}
 #right_sidebar {text-align:center}
 ul.links {margin:0}
 ul.links li {list-style-type:none;margin:0 auto;text-align:center}
-ul.links a {display:block;width:100px;height:69px;background-repeat:none}
+ul.links a {display:block;width:100px;height:69px;background-repeat:no-repeat}
 ul.links a span {display:none}
 a#home_inactive:link, a#home_inactive:visited {background-image:url('/images/home.png')}
 a#home_active, a#home_inactive:hover, a#home_inactive:active {background-image:url('/images/home-active.png')}
