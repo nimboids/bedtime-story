@@ -40,6 +40,7 @@ a#donate_active, a#donate_inactive:hover, a#donate_inactive:active {background-i
 #contribution .valid, #contribution .invalid {font-size:120%;font-weight:bold;margin-bottom:0.5em}
 #contribution .valid {color:green}
 #contribution .invalid {color:red}
+#add_this {margin-top:40px}
 #footer {border-top:1px solid #ab9b84;margin-top:1em;padding-bottom:0.5em}
 #footer p {color:white;text-align:center;font-size:80%}
 #footer a {color:white}
