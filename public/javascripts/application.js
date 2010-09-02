@@ -13,7 +13,7 @@ function scrollToEndOfStory() {
 }
 
 function updateCharactersRemaining() {
-  var characters_remaining = 140 - $("#story_contribution_text").html().length;
+  var characters_remaining = 140 - $("#story_contribution_text")[0].value.length;
   if (characters_remaining == -1) {
     var text = -characters_remaining + " character too many";
     var cls = "invalid";
