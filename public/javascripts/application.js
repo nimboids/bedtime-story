@@ -2,6 +2,7 @@ $(document).ready(function() {
   scrollToEndOfStory();
   $("#story_contribution_text").keyup(updateCharactersRemaining);
   $("#story_contribution_text").focus();
+  $("#add_this a").attr("addthis:title", "I've helped write the Byte Night bedtime story");
   setTimeout(updateCountdown, 1000);
 });
 
