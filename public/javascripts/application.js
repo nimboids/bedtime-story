@@ -1,16 +1,27 @@
 $(document).ready(function() {
   scrollToEndOfStory();
-  $("#story_contribution_text").keyup(updateCharactersRemaining);
-  $("#story_contribution_text").focus();
-  $("#add_this a").attr("addthis:title", "I've helped write the Byte Night bedtime story");
+  setupContributionForm();
+  setAddThisTitle();
   setTimeout(updateCountdown, 1000);
 });
 
 function scrollToEndOfStory() {
   var storyDiv = $("#story");
-  if (storyDiv != null) {
+  if (storyDiv.length != 0) {
     storyDiv.scrollTop(storyDiv[0].scrollHeight);
   }
+}
+
+function setupContributionForm() {
+  var textarea = $("#story_contribution_text");
+  if (textarea.length != 0) {
+    textarea.keyup(updateCharactersRemaining);
+    textarea.focus();
+  }
+}
+
+function setAddThisTitle() {
+  $("#add_this a").attr("addthis:title", "I've helped write the Byte Night bedtime story");
 }
 
 function updateCharactersRemaining() {
