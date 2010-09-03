@@ -9,6 +9,7 @@ describe StoryContribution do
   it { should have_db_column(:name).of_type(:text) }
   it { should validate_presence_of(:text) }
   it { should ensure_length_of(:text).is_at_most(140) }
+  it { should ensure_length_of(:name).is_at_most(100) }
   it { should_not allow_mass_assignment_of(:approver) }
   it { should_not allow_mass_assignment_of(:approver_id) }
   it { should_not allow_mass_assignment_of(:rejected) }

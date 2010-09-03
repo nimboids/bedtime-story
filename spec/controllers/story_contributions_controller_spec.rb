@@ -29,8 +29,7 @@ describe StoryContributionsController do
 
     describe "when a failure" do
       before do
-        @messages = stub :messages
-        @errors.stub(:full_messages).and_return @messages
+        @errors.stub(:full_messages).and_return %w(foo bar)
         @errors.stub(:empty?).and_return false
       end
 
@@ -41,7 +40,7 @@ describe StoryContributionsController do
 
       it "puts a message in the flash" do
         post :create
-        flash[:errors].should == @messages
+        flash[:errors].should == "foo<br />bar"
       end
     end
   end

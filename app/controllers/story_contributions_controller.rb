@@ -8,7 +8,7 @@ class StoryContributionsController < InheritedResources::Base
         redirect_to root_url
       end
       failure.html do
-        flash[:errors] = @story_contribution.errors.full_messages
+        flash[:errors] = @story_contribution.errors.full_messages.join("<br />")
         render :template => '/home/show'
       end
     end
