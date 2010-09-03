@@ -36,6 +36,8 @@ a#donate_active, a#donate_inactive:hover, a#donate_inactive:active {background-i
 #contribution label {font-size:120%;font-weight:bold;color:white}
 #contribution .textarea_wrapper {height:100px;background-image:url('/images/textarea.png');background-repeat:no-repeat}
 #contribution textarea {width:595px;height:60px;margin:10px 10px 0 10px;border:none;font-size:120%;font-family:'Helvetica Neue',Arial,'Liberation Sans',FreeSans,sans-serif}
+#contribution #story_contribution_name {width:250px}
+#contribution #story_contribution_submit {float:right}
 #contribution .valid, #contribution .invalid {font-size:90%;margin-left:20px;line-height:1em}
 #contribution .valid {color:green}
 #contribution .invalid {color:red}
