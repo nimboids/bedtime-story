@@ -34,9 +34,9 @@ a#donate_active, a#donate_inactive:hover, a#donate_inactive:active {background-i
 #story p#opening {font-weight:bold;font-size:120%}
 #story p {margin:0 0.5em 0.5em 0.5em;text-align:center}
 #contribution label {font-size:120%;font-weight:bold;color:white}
-#contribution .textarea_wrapper {height:80px;background-image:url('/images/textarea.png');background-repeat:no-repeat}
-#contribution textarea {width:595px;height:55px;margin:10px;border:none;font-size:120%;font-family:'Helvetica Neue',Arial,'Liberation Sans',FreeSans,sans-serif}
-#contribution .valid, #contribution .invalid {font-size:120%;font-weight:bold;margin-bottom:0.5em}
+#contribution .textarea_wrapper {height:100px;background-image:url('/images/textarea.png');background-repeat:no-repeat}
+#contribution textarea {width:595px;height:60px;margin:10px 10px 0 10px;border:none;font-size:120%;font-family:'Helvetica Neue',Arial,'Liberation Sans',FreeSans,sans-serif}
+#contribution .valid, #contribution .invalid {font-size:90%;margin-left:20px;line-height:1em}
 #contribution .valid {color:green}
 #contribution .invalid {color:red}
 .panel {background:transparent url('/images/translucent.png') repeat top left;color:black;padding:10px;margin-bottom:1em}
