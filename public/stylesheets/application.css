@@ -4,7 +4,6 @@ body {background: black url('/images/starry-sky.jpg') repeat top left!important;
 #header img#action_for_children {margin:20px 0 0 80px;float:left}
 #header img#byte_night {margin-top:20px;float:right}
 h1 {margin-top:20px!important;vertical-align:top;text-align:center;font-size:40px;color:#535249}
-a {color:white}
 .sidebar {background-image:url('/images/sidebar.png');height:500px;color:#535249}
 .sidebar p {margin:10px}
 .sidebar h2 {font-size:20px;margin-top:5px}
@@ -40,6 +39,7 @@ a#donate_active, a#donate_inactive:hover, a#donate_inactive:active {background-i
 #contribution .valid, #contribution .invalid {font-size:120%;font-weight:bold;margin-bottom:0.5em}
 #contribution .valid {color:green}
 #contribution .invalid {color:red}
+.panel {background:transparent url('/images/translucent.png') repeat top left;color:black;padding:10px;margin-bottom:1em}
 #add_this {margin-top:40px}
 #footer {border-top:1px solid #ab9b84;margin-top:1em;padding-bottom:0.5em}
 #footer p {color:white;text-align:center;font-size:80%}
