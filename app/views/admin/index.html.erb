@@ -1,13 +1,22 @@
-<h2>Story contributions awaiting moderation:</h2>
-<% form_tag approve_story_contributions_url do -%>
-  <% @story_contributions.each do |story_contribution| -%>
-    <p>
-      <input type="radio" name="story_contribution_id" id="story_contribution_<%= story_contribution.id %>" value="<%= story_contribution.id %>">
-      <label for="story_contribution_<%= story_contribution.id %>"><%= story_contribution.text %></label>
-      </input>
-    </p>
+<div class="panel">
+  <h2>Story contributions awaiting moderation:</h2>
+  <% form_tag approve_story_contributions_url do -%>
+    <% @story_contributions.each do |story_contribution| -%>
+      <p>
+        <input type="radio" name="story_contribution_id" id="story_contribution_<%= story_contribution.id %>"
+        value="<%= story_contribution.id %>">
+        <label for="story_contribution_<%= story_contribution.id %>">
+          <%= story_contribution.text %>
+          <% if story_contribution.name.present? -%>
+            <span class="author">(by <%= story_contribution.name %>)</span>
+          <% end -%>
+        </label>
+        </input>
+      </p>
+    <% end -%>
+    <%= submit_tag "Approve" %>
   <% end -%>
-  <%= submit_tag "Approve" %>
-<% end -%>
-<hr />
-<p><%= link_to "Log out", logout_path %> </p>
+</div>
+<div class="panel">
+  <p><%= link_to "Log out", logout_path %> </p>
+</div>
