@@ -4,4 +4,5 @@ class StoryContribution < ActiveRecord::Base
   named_scope :awaiting_approval, :conditions => "approver_id is null and rejected != true"
   validates_presence_of :text
   validates_length_of :text, :maximum => 140
+  attr_accessible :text, :name
 end
