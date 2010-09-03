@@ -6,6 +6,7 @@ describe StoryContribution do
   it { should have_db_column(:updated_at).of_type(:datetime) }
   it { should have_db_column(:approver_id).of_type(:integer) }
   it { should have_db_column(:rejected).of_type(:boolean) }
+  it { should have_db_column(:name).of_type(:text) }
   it { should validate_presence_of(:text) }
   it { should ensure_length_of(:text).is_at_most(140) }
 

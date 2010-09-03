@@ -13,5 +13,7 @@
     <%= f.text_area :text, :rows => 4, :cols => 50 %>
     <p id="characters_remaining" class="valid">140 characters remaining</p>
   </div>
+  <%= f.label :name, "Your name (optional)" %>
+  <%= f.text_field :name %>
   <%= f.submit "Submit" %>
 <% end %>

@@ -5,11 +5,26 @@ Feature: Contributing to the story
     When I go to the home page
     Then the cursor should be in the contribution field
 
-  Scenario: Moderated contribution
+  Scenario: Moderated anonymous contribution
     When I go to the home page
     Then the story should be:
       | Once upon a time... |
     When I fill in "Now, you continue the story" with "there was a castle on the hill"
+    And I press "Submit"
+    Then I should see "Your contribution is awaiting moderation"
+    And I should not see "there was a castle on the hill"
+    When a moderator has approved my contribution
+    And I go to the home page
+    Then the story should be:
+      | Once upon a time...            |
+      | there was a castle on the hill |
+
+  Scenario: Moderated contribution, providing name
+    When I go to the home page
+    Then the story should be:
+      | Once upon a time... |
+    When I fill in "Now, you continue the story" with "there was a castle on the hill"
+    And I fill in "Your name (optional)" with "Mickey Mouse"
     And I press "Submit"
     Then I should see "Your contribution is awaiting moderation"
     And I should not see "there was a castle on the hill"
