@@ -3,7 +3,7 @@ require File.expand_path "../../spec_helper", __FILE__
 describe StoryContribution do
   it { should have_db_column(:text).of_type(:string) }
   it { should have_db_column(:original_text).of_type(:string) }
-  it { should have_db_column(:name).of_type(:text) }
+  it { should have_db_column(:name).of_type(:string) }
   it { should have_db_column(:created_at).of_type(:datetime) }
   it { should have_db_column(:updated_at).of_type(:datetime) }
   it { should have_db_column(:approver_id).of_type(:integer) }
