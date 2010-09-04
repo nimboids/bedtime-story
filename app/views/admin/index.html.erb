@@ -4,9 +4,10 @@
     <% @story_contributions.each do |story_contribution| -%>
       <p>
         <input type="radio" name="story_contribution_id" id="story_contribution_<%= story_contribution.id %>"
-        value="<%= story_contribution.id %>" />
+          value="<%= story_contribution.id %>" />
         <label for="story_contribution_<%= story_contribution.id %>">
-          <input name="story_contribution_text_<%= story_contribution.id %>" value="<%= story_contribution.text %>">
+          <textarea class="edit_story_contribution"
+            name="story_contribution_text_<%= story_contribution.id %>"><%= story_contribution.text %></textarea>
           <% if story_contribution.name.present? -%>
             <div class="author">by <%= story_contribution.name %></div>
           <% end -%>

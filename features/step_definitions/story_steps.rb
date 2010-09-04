@@ -10,7 +10,7 @@ When %r/^I choose the contribution "([^"]*)"$/ do |text|
 end
 
 When %r/^I change "([^"]*)" to "([^"]*)"$/ do |original_text, edited_text|
-  field = find :xpath, "//input[@value='#{original_text}']"
+  field = find :xpath, "//textarea[text()='#{original_text}']"
   field.set edited_text
 end
 

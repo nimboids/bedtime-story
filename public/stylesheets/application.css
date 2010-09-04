@@ -41,6 +41,7 @@ a#donate_active, a#donate_inactive:hover, a#donate_inactive:active {background-i
 #contribution .valid {color:green}
 #contribution .invalid {color:red}
 .panel {background:transparent url('/images/translucent.png') repeat top left;color:black;padding:10px;margin-bottom:1em}
+.edit_story_contribution {width:550px;height:50px}
 .author {font-style:italic}
 #add_this {margin-top:40px}
 #footer {border-top:1px solid #ab9b84;margin-top:1em;padding-bottom:0.5em}
