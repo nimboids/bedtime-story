@@ -59,32 +59,21 @@ describe StoryContributionsController do
 
     context "when logged in" do
       before do
-        @current_user = Factory :user
+        @current_user = mock :user
         controller.stub(:current_user).and_return @current_user
-        StoryContribution.destroy_all
-        @contrib_1 = Factory :story_contribution
-        @contrib_2 = Factory :story_contribution, :text => "original text"
-        @contrib_3 = Factory :story_contribution
+        @id_to_approve = "123"
+        @edited_text = "edited text"
+        StoryContribution.stub :approve
       end
 
       def do_post
-        post :approve, :story_contribution_id => @contrib_2.id,
-          "story_contribution_text_#{@contrib_2.id}" => "edited text"
+        post :approve, :story_contribution_id => @id_to_approve,
+          "story_contribution_text_#{@id_to_approve}" => @edited_text
       end
 
-      it "updates the story text" do
+      it "approves the correct contribution, with the edited text" do
+        StoryContribution.should_receive(:approve).with @id_to_approve, @current_user, @edited_text
         do_post
-        @contrib_2.reload.text.should == "edited text"
-      end
-
-      it "marks the contribution as approved by the current user" do
-        do_post
-        @contrib_2.reload.approver.should == @current_user
-      end
-
-      it "marks all other contribution awaiting approval as rejected" do
-        do_post
-        StoryContribution.awaiting_approval.should be_empty
       end
 
       it "redirects to the admin page" do

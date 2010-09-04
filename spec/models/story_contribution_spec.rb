@@ -39,4 +39,33 @@ describe StoryContribution do
       StoryContribution.awaiting_approval.should == [contrib_3, contrib_4]
     end
   end
+
+  describe "approving" do
+    before do
+      @approver = Factory :user
+      StoryContribution.destroy_all
+      @contrib_1 = Factory :story_contribution
+      @contrib_2 = Factory :story_contribution, :text => "original text"
+      @contrib_3 = Factory :story_contribution
+    end
+
+    def do_approve
+      StoryContribution.approve @contrib_2.id, @approver, "edited text"
+    end
+
+    it "updates the story text" do
+      do_approve
+      @contrib_2.reload.text.should == "edited text"
+    end
+
+    it "marks the contribution as approved by the correct user" do
+      do_approve
+      @contrib_2.reload.approver.should == @approver
+    end
+
+    it "marks all other contribution awaiting approval as rejected" do
+      do_approve
+      StoryContribution.awaiting_approval.should be_empty
+    end
+  end
 end
