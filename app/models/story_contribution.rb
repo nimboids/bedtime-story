@@ -7,6 +7,10 @@ class StoryContribution < ActiveRecord::Base
   validates_length_of :name, :maximum => 100, :allow_blank => true
   attr_accessible :text, :name
 
+  def before_create
+    self.original_text = text
+  end
+
   def self.approve id_to_approve, approver, edited_text
     contribution_to_approve = find id_to_approve
     contribution_to_approve.text = edited_text

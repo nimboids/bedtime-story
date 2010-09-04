@@ -2,14 +2,16 @@ require File.expand_path "../../spec_helper", __FILE__
 
 describe StoryContribution do
   it { should have_db_column(:text).of_type(:string) }
+  it { should have_db_column(:original_text).of_type(:string) }
+  it { should have_db_column(:name).of_type(:text) }
   it { should have_db_column(:created_at).of_type(:datetime) }
   it { should have_db_column(:updated_at).of_type(:datetime) }
   it { should have_db_column(:approver_id).of_type(:integer) }
   it { should have_db_column(:rejected).of_type(:boolean) }
-  it { should have_db_column(:name).of_type(:text) }
   it { should validate_presence_of(:text) }
   it { should ensure_length_of(:text).is_at_most(140) }
   it { should ensure_length_of(:name).is_at_most(100) }
+  it { should_not allow_mass_assignment_of(:original_text) }
   it { should_not allow_mass_assignment_of(:approver) }
   it { should_not allow_mass_assignment_of(:approver_id) }
   it { should_not allow_mass_assignment_of(:rejected) }
@@ -37,6 +39,13 @@ describe StoryContribution do
       contrib_3 = Factory :story_contribution
       contrib_4 = Factory :story_contribution, :rejected => false
       StoryContribution.awaiting_approval.should == [contrib_3, contrib_4]
+    end
+  end
+
+  context "on creation" do
+    it "saves the original text" do
+      contrib = StoryContribution.create :text => "some text"
+      contrib.reload.original_text.should == "some text"
     end
   end
 
