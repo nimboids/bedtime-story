@@ -63,12 +63,18 @@ describe StoryContributionsController do
         controller.stub(:current_user).and_return @current_user
         StoryContribution.destroy_all
         @contrib_1 = Factory :story_contribution
-        @contrib_2 = Factory :story_contribution
+        @contrib_2 = Factory :story_contribution, :text => "original text"
         @contrib_3 = Factory :story_contribution
       end
 
       def do_post
-        post :approve, :story_contribution_id => @contrib_2.id
+        post :approve, :story_contribution_id => @contrib_2.id,
+          "story_contribution_text_#{@contrib_2.id}" => "edited text"
+      end
+
+      it "updates the story text" do
+        do_post
+        @contrib_2.reload.text.should == "edited text"
       end
 
       it "marks the contribution as approved by the current user" do

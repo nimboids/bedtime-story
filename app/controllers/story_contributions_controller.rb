@@ -15,7 +15,9 @@ class StoryContributionsController < InheritedResources::Base
   end
 
   def approve
-    contribution_to_approve = StoryContribution.find params[:story_contribution_id]
+    selected_id = params[:story_contribution_id]
+    contribution_to_approve = StoryContribution.find selected_id
+    contribution_to_approve.text = params["story_contribution_text_#{selected_id}"]
     contribution_to_approve.approver = current_user
     contribution_to_approve.save
     StoryContribution.awaiting_approval.each do |story_contribution|

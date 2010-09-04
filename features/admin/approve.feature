@@ -1,6 +1,6 @@
 Feature: Admin approval of story contributions
 
-  Scenario: Moderated contribution
+  Background:
     Given the following user exists:
       | login | password |
       | fred  | secret   |
@@ -11,10 +11,11 @@ Feature: Admin approval of story contributions
       | who lived in a castle       |             |              |
       | who lived in a council flat |             | Mickey Mouse |
     When I go to the admin page
-    And I log in as "fred" with password "secret"
-    Then I should see "who lived in a council flat (by Mickey Mouse)"
-    And I should see "Mickey Mouse" within "span.author"
-    And I choose "who lived in a castle"
+    When I log in as "fred" with password "secret"
+
+  Scenario: Approve unedited
+    Then I should see "by Mickey Mouse"
+    When I choose the contribution "who lived in a castle"
     And I press "Approve"
     And I go to the home page
     Then the story should be:
@@ -23,3 +24,13 @@ Feature: Admin approval of story contributions
       | who lived in a castle |
     When I go to the admin page
     Then I should not see "who lived in"
+
+  Scenario: Edit and approve
+    When I choose the contribution "who lived in a castle"
+    And I change "who lived in a castle" to "who lived in an enchanted castle"
+    And I press "Approve"
+    And I go to the home page
+    Then the story should be:
+      | Once upon a time...              |
+      | there was a king                 |
+      | who lived in an enchanted castle |
