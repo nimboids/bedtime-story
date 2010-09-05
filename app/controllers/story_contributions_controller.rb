@@ -30,7 +30,8 @@ class StoryContributionsController < InheritedResources::Base
   def update_twitter text
     begin
       TwitterInterface.update_status text
-    rescue Twitter::TwitterError
+    rescue Twitter::TwitterError => e
+      logger.debug e.inspect
       flash[:errors] = ["Warning: failed to post update to Twitter"]
     end
   end
