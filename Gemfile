@@ -2,7 +2,7 @@ source "http://rubygems.org"
 
 # put production gems here
 gem "postgres"
-gem "rails", "2.3.8"
+gem "rails", "2.3.9"
 gem "elastic_rails"
 gem "authlogic"
 gem "formtastic"
