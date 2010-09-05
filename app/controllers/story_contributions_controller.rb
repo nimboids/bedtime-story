@@ -18,8 +18,24 @@ class StoryContributionsController < InheritedResources::Base
     selected_id = params[:story_contribution_id]
     edited_text = params["story_contribution_text_#{selected_id}"]
     StoryContribution.approve selected_id, current_user, edited_text
+    flash[:notice] = "Contribution approved"
+    update_twitter edited_text
     redirect_to :root
   rescue ActiveRecord::RecordInvalid => e
+    handle_save_error e
+  end
+
+  private
+
+  def update_twitter text
+    begin
+      TwitterInterface.update_status text
+    rescue Twitter::TwitterError
+      flash[:errors] = ["Warning: failed to post update to Twitter"]
+    end
+  end
+
+  def handle_save_error e
     @story_contributions = StoryContribution.awaiting_approval
     @story_contributions.each do |contribution|
       edited_text = params["story_contribution_text_#{contribution.id}"]

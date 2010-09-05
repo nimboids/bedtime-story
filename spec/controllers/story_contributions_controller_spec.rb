@@ -68,6 +68,7 @@ describe StoryContributionsController do
         @edited_text = "edited text"
         StoryContribution.stub(:awaiting_approval).and_return [@contrib_1, @contrib_2]
         StoryContribution.stub :approve
+        TwitterInterface.stub :update_status
       end
 
       def do_post
@@ -85,9 +86,38 @@ describe StoryContributionsController do
           StoryContribution.stub(:approve).and_return true
         end
 
-        it "redirects to the home page" do
+        it "posts the contribution to Twitter" do
+          TwitterInterface.should_receive(:update_status).with @edited_text
           do_post
-          response.should redirect_to(root_url)
+        end
+
+        shared_examples_for "a successful update" do
+          it "puts a status message in the flash" do
+            do_post
+            flash[:notice].should == "Contribution approved"
+          end
+
+          it "redirects to the home page" do
+            do_post
+            response.should redirect_to(root_url)
+          end
+        end
+
+        context "when the Twitter update succeeds" do
+          it_should_behave_like "a successful update"
+        end
+
+        context "when the Twitter update fails" do
+          before do
+            TwitterInterface.stub(:update_status).and_raise Twitter::TwitterError.new(nil)
+          end
+
+          it_should_behave_like "a successful update"
+
+          it "puts a warning in the flash" do
+            do_post
+            flash[:errors].should == ["Warning: failed to post update to Twitter"]
+          end
         end
       end
 

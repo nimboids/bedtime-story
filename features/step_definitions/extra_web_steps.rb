@@ -10,3 +10,11 @@ When %r/^I fill in "([^"]*)" with a (\d+) character string$/ do |field, characte
   string = characters.to_i.times.map{ 'a' }.join
   When %(I fill in "#{field}" with "#{string}")
 end
+
+Then %r/^the submit button should be disabled$/ do
+  find("#story_contribution_submit")["disabled"].should_not be_nil
+end
+
+Then %r/^the submit button should be enabled$/ do
+  find("#story_contribution_submit")["disabled"].should be_nil
+end

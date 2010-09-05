@@ -6,6 +6,7 @@ gem "rails", "2.3.9"
 gem "elastic_rails"
 gem "authlogic"
 gem "formtastic"
+gem "twitter"
 
 group :plugins do
   gem "inherited_resources", "1.0.6"
@@ -27,4 +28,5 @@ group :development, :test do
   gem "spork"
   gem "roodi"
   gem "timecop"
+  gem "webmock"
 end
