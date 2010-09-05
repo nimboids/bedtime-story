@@ -34,3 +34,12 @@ Feature: Admin approval of story contributions
       | Once upon a time...              |
       | there was a king                 |
       | who lived in an enchanted castle |
+
+  Scenario: Attempt to edit a contribution to over 140 characters
+    When I choose the contribution "who lived in a castle"
+    And I change "who lived in a castle" to "This is quite a long sentence which is one hundred and forty-one characters long, or one letter more than the limit of one hundred and forty."
+    And I press "Approve"
+    And I should see "mud hut"
+    And I should not see "castle"
+    And I should see "This is quite a long sentence"
+    And I should see "Text is too long (maximum is 140 characters)"

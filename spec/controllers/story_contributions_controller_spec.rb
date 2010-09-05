@@ -29,7 +29,8 @@ describe StoryContributionsController do
 
     describe "when a failure" do
       before do
-        @errors.stub(:full_messages).and_return %w(foo bar)
+        @messages = %w(foo bar)
+        @errors.stub(:full_messages).and_return @messages
         @errors.stub(:empty?).and_return false
       end
 
@@ -40,7 +41,7 @@ describe StoryContributionsController do
 
       it "puts a message in the flash" do
         post :create
-        flash[:errors].should == "foo<br />bar"
+        flash[:errors].should == @messages
       end
     end
   end
@@ -61,8 +62,11 @@ describe StoryContributionsController do
       before do
         @current_user = mock :user
         controller.stub(:current_user).and_return @current_user
-        @id_to_approve = "123"
+        @contrib_1 = Factory :story_contribution
+        @contrib_2 = Factory :story_contribution
+        @id_to_approve = @contrib_1.id.to_s
         @edited_text = "edited text"
+        StoryContribution.stub(:awaiting_approval).and_return [@contrib_1, @contrib_2]
         StoryContribution.stub :approve
       end
 
@@ -76,9 +80,50 @@ describe StoryContributionsController do
         do_post
       end
 
-      it "redirects to the admin page" do
-        do_post
-        response.should redirect_to(admin_index_url)
+      context "when successful" do
+        before do
+          StoryContribution.stub(:approve).and_return true
+        end
+
+        it "redirects to the home page" do
+          do_post
+          response.should redirect_to(root_url)
+        end
+      end
+
+      context "when unsuccessful" do
+        before do
+          @messages = %w(foo bar)
+          @errors = mock :errors, :full_messages => @messages
+          contribution = mock_model StoryContribution, :errors => @errors
+          StoryContribution.stub(:approve).and_raise ActiveRecord::RecordInvalid.new(contribution)
+        end
+
+        it "reassigns the edited contribution list for the view" do
+          do_post
+          assigns[:story_contributions].map{|c| [c.id, c.text]}.should == [
+            [@contrib_1.id, "edited text"],
+            [@contrib_2.id, @contrib_2.text]
+          ]
+        end
+
+        it "puts the errors in the 'now' flash" do
+          do_post
+          response.flash[:errors].should == @messages
+          flash[:errors].should be_nil
+        end
+
+        it "does not overwrite text of newly-appeared contributions" do
+          @contrib_3 = Factory :story_contribution, :text => "I'm new!"
+          StoryContribution.stub(:awaiting_approval).and_return [@contrib_1, @contrib_2, @contrib_3]
+          do_post
+          assigns[:story_contributions].find{|c| c == @contrib_3}.text.should == "I'm new!"
+        end
+
+        it "re-renders the admin page" do
+          do_post
+          response.should render_template("admin/index")
+        end
       end
     end
   end

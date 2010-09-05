@@ -15,7 +15,7 @@ class StoryContribution < ActiveRecord::Base
     contribution_to_approve = find id_to_approve
     contribution_to_approve.text = edited_text
     contribution_to_approve.approver = approver
-    contribution_to_approve.save
+    contribution_to_approve.save!
     awaiting_approval.update_all :rejected => true
   end
 end

@@ -30,6 +30,12 @@
         </ul>
       </div>
       <div id="main" class="grid_8 ">
+        <% if flash[:notice] -%>
+          <%= content_tag :div, flash[:notice], :id => "flash_notice" %>
+        <% end -%>
+        <% if flash[:errors] -%>
+          <%= content_tag :div, flash[:errors].join("<br />"), :id => "flash_errors" %>
+        <% end -%>
         <%= yield %>
       </div>
       <div id="right_sidebar" class="grid_2 sidebar">

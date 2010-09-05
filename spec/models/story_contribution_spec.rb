@@ -67,14 +67,40 @@ describe StoryContribution do
       @contrib_2.reload.text.should == "edited text"
     end
 
-    it "marks the contribution as approved by the correct user" do
-      do_approve
-      @contrib_2.reload.approver.should == @approver
+    context "when the text is updated successfully" do
+      it "marks the contribution as approved by the correct user" do
+        do_approve
+        @contrib_2.reload.approver.should == @approver
+      end
+
+      it "marks all other contribution awaiting approval as rejected" do
+        do_approve
+        StoryContribution.awaiting_approval.should be_empty
+      end
+
+      it "returns true" do
+        do_approve.should be_true
+      end
     end
 
-    it "marks all other contribution awaiting approval as rejected" do
-      do_approve
-      StoryContribution.awaiting_approval.should be_empty
+    context "when updated text is too long" do
+      def do_approve
+        StoryContribution.approve @contrib_2.id, @approver, "X" * 141
+      end
+      
+      it "does not mark the contribution as approved" do
+        lambda {do_approve}
+        @contrib_2.reload.approver.should be_nil
+      end
+
+      it "does not marks any contributions as rejected" do
+        lambda {do_approve}
+        StoryContribution.awaiting_approval.should have(3).elements
+      end
+
+      it "raises an error" do
+        lambda {do_approve}.should raise_error(ActiveRecord::RecordInvalid)
+      end
     end
   end
 end

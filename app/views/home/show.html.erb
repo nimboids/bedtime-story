@@ -4,9 +4,6 @@
     <%= render :partial => "story_contribution" , :collection => @story_contributions %>
   </div>
 </div>
-<%- flash.each do |name, msg| -%>
-  <%= content_tag :div, msg, :id => "flash_#{name}" %>
-<%- end -%>
 <% form_for :story_contribution, :url => {:controller => "story_contributions", :action => "create"}, :html => {:id => "contribution"} do |f| %>
   <%= f.label :text, "Now, you continue the story&hellip;" %>
   <div class="textarea_wrapper">
