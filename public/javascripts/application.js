@@ -2,6 +2,7 @@ $(document).ready(function() {
   scrollToEndOfStory();
   setupContributionForm();
   setAddThisTitle();
+  $('body').supersleight({shim: '/images/transparent.gif'});
   setTimeout(updateCountdown, 1000);
 });
 
