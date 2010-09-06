@@ -78,8 +78,8 @@ function updateCountdown() {
 }
 
 function fixPngsForIe6() {
-  $('#header,#right_sidebar,.star,.textarea_wrapper,#book,.panel,#flash_notice,#flash_errors').supersleight({shim: '/images/transparent.gif'});
-  if (jQuery.browser.msie && jQuery.browser.version == "6.0") {
+  $('#header,#right_sidebar,.star,.textarea_wrapper,#book,#flash_notice,#flash_errors').supersleight({shim: '/images/transparent.gif'});
+  if (jQuery.browser.msie && parseFloat(jQuery.browser.version) < 8) {
     $(".panel").css("background-color", "white")
   }
 }
