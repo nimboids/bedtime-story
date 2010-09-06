@@ -84,7 +84,13 @@ function addPanelBorders() {
 
 function fixPngsForIe6() {
   $('#header,#right_sidebar,.star,.textarea_wrapper,#book,#flash_notice,#flash_errors,.panel_top,.panel_bottom').supersleight({shim: '/images/transparent.gif'});
-  if (jQuery.browser.msie && parseFloat(jQuery.browser.version) < 8) {
-    $(".panel").css("background-color", "white")
+  if (jQuery.browser.msie) {
+    if (parseFloat(jQuery.browser.version) < 8) {
+      $(".panel").css("background-color", "white");
+    }
+    if (jQuery.browser.version == "6.0") {
+      $(".panel_top").css("position", "relative");
+      $(".panel_top").css("top", "1px");
+    }
   }
 }
