@@ -2,7 +2,7 @@ $(document).ready(function() {
   scrollToEndOfStory();
   setupContributionForm();
   setAddThisTitle();
-  $('body').supersleight({shim: '/images/transparent.gif'});
+  fixPngsForIe6();
   setTimeout(updateCountdown, 1000);
 });
 
@@ -74,6 +74,9 @@ function updateCountdown() {
     $("#countdown_minutes").html(minutes);
   }
   $("#countdown_seconds").html(seconds);
-  $('body').supersleight({shim: '/images/transparent.gif'});
   setTimeout(updateCountdown, 1000);
+}
+
+function fixPngsForIe6() {
+  $('#header', '#sidebar').supersleight({shim: '/images/transparent.gif'});
 }
