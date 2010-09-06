@@ -11,8 +11,6 @@ Feature: Home page and static information pages
     Then the page title should be "Byte Night Bedtime Story – Top Bedtime Story Phrases"
     When I follow "Famous contributors"
     Then the page title should be "Byte Night Bedtime Story – Famous Contributors"
-    When I follow "Privacy Policy"
-    Then the page title should be "Byte Night Bedtime Story – Privacy Policy"
     When I follow "Terms & Conditions"
     Then the page title should be "Byte Night Bedtime Story – Terms & Conditions"
 
@@ -35,8 +33,6 @@ Feature: Home page and static information pages
     When I follow "Top bedtime story phrases"
     Then I should not see "TODO"
     When I follow "Famous contributors"
-    Then I should not see "TODO"
-    When I follow "Privacy Policy"
     Then I should not see "TODO"
     When I follow "Terms & Conditions"
     Then I should not see "TODO"
