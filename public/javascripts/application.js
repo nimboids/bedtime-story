@@ -78,5 +78,5 @@ function updateCountdown() {
 }
 
 function fixPngsForIe6() {
-  $('#header,#sidebar').supersleight({shim: '/images/transparent.gif'});
+  $('#header,.sidebar,.star,#textarea_wrapper,#book,.panel,#flash_notice,#flash_errors').supersleight({shim: '/images/transparent.gif'});
 }
