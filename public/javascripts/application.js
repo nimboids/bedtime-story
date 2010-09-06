@@ -74,6 +74,7 @@ function updateCountdown() {
     $("#countdown_minutes").html(minutes);
   }
   $("#countdown_seconds").html(seconds);
+  $('#right_sidebar').supersleight({shim: '/images/transparent.gif'});
   setTimeout(updateCountdown, 1000);
 }
 
