@@ -83,7 +83,7 @@ function addPanelBorders() {
 }
 
 function fixPngsForIe6() {
-  $('#header,#right_sidebar,.star,.textarea_wrapper,#book,#flash_notice,#flash_errors,.panel-top,.panel-bottom').supersleight({shim: '/images/transparent.gif'});
+  $('#header,#right_sidebar,.star,.textarea_wrapper,#book,#flash_notice,#flash_errors,.panel_top,.panel_bottom').supersleight({shim: '/images/transparent.gif'});
   if (jQuery.browser.msie && parseFloat(jQuery.browser.version) < 8) {
     $(".panel").css("background-color", "white")
   }
