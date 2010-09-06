@@ -89,8 +89,7 @@ function fixPngsForIe6() {
       $(".panel").css("background-color", "white");
     }
     if (jQuery.browser.version == "6.0") {
-      $(".panel_top").css("position", "relative");
-      $(".panel_top").css("top", "1px");
+      $(".panel_top").css("height", "14px");
     }
   }
 }
