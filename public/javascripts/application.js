@@ -2,6 +2,7 @@ $(document).ready(function() {
   scrollToEndOfStory();
   setupContributionForm();
   setAddThisTitle();
+  addPanelBorders();
   fixPngsForIe6();
   setTimeout(updateCountdown, 1000);
 });
@@ -75,6 +76,10 @@ function updateCountdown() {
   }
   $("#countdown_seconds").html(seconds);
   setTimeout(updateCountdown, 1000);
+}
+
+function addPanelBorders() {
+  $(".panel").before('<div class="panel_top" />').after('<div class="panel_bottom" />');
 }
 
 function fixPngsForIe6() {
