@@ -5,7 +5,7 @@ describe HomeController do
 
   describe "show" do
     it "caches approved story contributions in the view" do
-      # needs caching enabed in config/environments/test.rb
+      ActionController::Base.perform_caching = true
       StoryContribution.should_receive(:approved).once.and_return []
       2.times {get :show}
     end

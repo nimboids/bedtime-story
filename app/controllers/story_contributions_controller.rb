@@ -14,6 +14,10 @@ class StoryContributionsController < InheritedResources::Base
     end
   end
 
+  def index
+    @story_contributions = StoryContribution.approved
+  end
+
   def approve
     selected_id = params[:story_contribution_id]
     edited_text = params["story_contribution_text_#{selected_id}"]

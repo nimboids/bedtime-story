@@ -46,6 +46,29 @@ describe StoryContributionsController do
     end
   end
 
+  describe "RSS feed" do
+    before do
+      @contrib_1 = Factory :story_contribution, :text => "foo", :name => "fred", :approver_id => 1
+      @contrib_2 = Factory :story_contribution, :text => "bar", :name => "bob", :approver_id => 1
+      @story = [@contrib_1, @contrib_2]
+      StoryContribution.stub(:approved).and_return @story
+    end
+
+    def do_get
+      get :index, :format => "rss"
+    end
+
+    it "assigns all approved story contributions for the view" do
+      do_get
+      assigns[:story_contributions].should == @story
+    end
+
+    it "renders the RSS builder" do
+      do_get
+      response.should render_template "index.rss.builder"
+    end
+  end
+
   describe "approving" do
     context "when not logged in" do
       before do

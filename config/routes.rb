@@ -3,6 +3,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :admin, :only => :index
   map.resource :user_session, :only => [:new, :create]
   map.logout "/user_session/destroy", :controller => :user_sessions, :action => :destroy
+  map.rss "/rss", :controller => :story_contributions, :action => :index, :format => "rss"
 
   map.root :controller => "home", :action => "show"
 
