@@ -11,9 +11,8 @@ class ApplicationController < ActionController::Base
   before_filter :finish_date
 
   helper_method :current_user
-  
-  # 23:59 - 30th Sept 2010
-  FINISH_DATE = Time.local(2010, 'sep', 30, 23, 59, 0).to_datetime
+
+  FINISH_DATE = Time.local(2010, 'oct', 1, 17, 0, 0).to_datetime
 
   def finish_date
     @finish_date = FINISH_DATE
