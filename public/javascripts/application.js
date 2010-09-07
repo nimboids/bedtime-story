@@ -80,6 +80,8 @@ function updateCountdown() {
 
 function addPanelBorders() {
   $(".panel").before('<div class="panel_top" />').after('<div class="panel_bottom" />');
+  $("#flash_notice").before('<div id="flash_notice_top" />').after('<div id="flash_notice_bottom" />');
+  $("#flash_errors").before('<div id="flash_errors_top" />').after('<div id="flash_errors_bottom" />');
 }
 
 function fixPngsForIe6() {
@@ -89,8 +91,7 @@ function fixPngsForIe6() {
       $(".panel").css("background-color", "white");
     }
     if (jQuery.browser.version == "6.0") {
-      $(".panel_top").css("position", "relative");
-      $(".panel_top").css("top", "1px");
+      $(".panel_top,#flash_notice,#flash_errors").css("top", "1px");
     }
   }
 }

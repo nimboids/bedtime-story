@@ -26,9 +26,6 @@ a#famous_inactive:link, a#famous_inactive:visited {background-image:url('/images
 a#famous_active, a#famous_inactive:hover, a#famous_inactive:active {background-image:url('/images/famous-active.png')}
 a#donate_inactive:link, a#donate_inactive:visited {background-image:url('/images/donate.png')}
 a#donate_active, a#donate_inactive:hover, a#donate_inactive:active {background-image:url('/images/donate-active.png')}
-#flash_notice, #flash_errors {width:100%;height:80px;margin-top:1em;background-repeat:no-repeat;color:black;font-size:120%;text-align:center;padding:10px}
-#flash_notice {background-image:url('/images/flash_notice.png')}
-#flash_errors {background-image:url('/images/flash_error.png')}
 #book {height:344px;background-image:url('/images/book.png');background-repeat:no-repeat}
 #story {color:#222;height:260px;width:260px;margin-left:320px;position:relative;top:30px;overflow:auto}
 #story p#opening {font-weight:bold;font-size:120%}
@@ -40,11 +37,21 @@ a#donate_active, a#donate_inactive:hover, a#donate_inactive:active {background-i
 #contribution .valid, #contribution .invalid {font-size:90%;margin-left:20px;line-height:1em}
 #contribution .valid {color:green}
 #contribution .invalid {color:red}
+.panel, #flash_notice, #flash_errors {border-left:1px solid black;border-right:1px solid black;color:black;padding:10px}
+.panel {background-color:white}
 .panel_top {background:transparent url('/images/panel-top.png') no-repeat top left;height:15px}
 .panel_bottom {background:transparent url('/images/panel-bottom.png') no-repeat top left;height:20px;margin-bottom:2em}
-.panel {border-left:1px solid black;border-right:1px solid black;background-color:white;color:black;padding:10px}
-.panel > *.first {padding-top:0;margin-top:0}
-.panel > *.last {padding-bottom:0;margin-bottom:0}
+#flash_notice, #flash_errors {font-size:120%;text-align:center}
+#flash_notice {background-color:#6fb33a}
+#flash_notice_top {background:transparent url('/images/flash-notice-top.png') no-repeat top left;height:15px}
+#flash_notice_bottom {background:transparent url('/images/flash-notice-bottom.png') no-repeat top left;height:20px;margin-bottom:2em}
+#flash_errors {background-color:#f24020}
+#flash_errors_top {background:transparent url('/images/flash-errors-top.png') no-repeat top left;height:15px}
+#flash_errors_bottom {background:transparent url('/images/flash-errors-bottom.png') no-repeat top left;height:20px;margin-bottom:2em}
+.panel_top {background:transparent url('/images/panel-top.png') no-repeat top left;height:15px}
+.panel_bottom {background:transparent url('/images/panel-bottom.png') no-repeat top left;height:20px;margin-bottom:2em}
+.panel > *.first, #flash_notice > p, #flash_errors > p {padding-top:0;margin-top:0}
+.panel > *.last, #flash_notice > p, #flash_errors > p {padding-bottom:0;margin-bottom:0}
 .story_approval_button {position:relative;top:-25px}
 .edit_story_contribution {width:550px;height:50px}
 .author {font-style:italic}

@@ -31,10 +31,10 @@
       </div>
       <div id="main" class="grid_8 ">
         <% if flash[:notice] -%>
-          <%= content_tag :div, flash[:notice], :id => "flash_notice" %>
+          <%= content_tag :div, "<p>#{flash[:notice]}</p>", :id => "flash_notice" %>
         <% end -%>
         <% if flash[:errors] -%>
-          <%= content_tag :div, flash[:errors].join("<br />"), :id => "flash_errors" %>
+          <%= content_tag :div, "<p>#{flash[:errors].join('<br />')}</p>", :id => "flash_errors" %>
         <% end -%>
         <%= yield %>
       </div>
