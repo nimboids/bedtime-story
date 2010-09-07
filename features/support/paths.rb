@@ -11,6 +11,7 @@ module NavigationHelpers
     when /the home\s?page/i then root_path
     when /the admin page/i then admin_index_path
     when /the login page/i then new_user_session_path
+    when "a nonexistent page" then "/nonexistent"
     when /the (.*) page/i then page_path(:page => $1)
 
     else

@@ -1,5 +1,5 @@
-When %r/I print the response/ do
-  puts response.body
+Then %r/^the response status should be (\d+)$/ do |status|
+  response.response_code.should == status
 end
 
 Then %r/^the page title should be "([^"]*)"$/ do |title|

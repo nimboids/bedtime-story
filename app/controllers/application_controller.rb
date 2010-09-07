@@ -8,14 +8,11 @@ class ApplicationController < ActionController::Base
   # Scrub sensitive parameters from your log
   filter_parameter_logging :password
 
-  before_filter :finish_date
-
   helper_method :current_user
 
-  FINISH_DATE = Time.local(2010, 'oct', 1, 17, 0, 0).to_datetime
-
-  def finish_date
-    @finish_date = FINISH_DATE
+  rescue_from ActionController::RoutingError, ActionController::UnknownAction, ActionView::MissingTemplate do |e|
+    logger.warn e.inspect
+    render :template => "/404", :status => 404
   end
 
   def current_user

@@ -9,9 +9,38 @@ describe ApplicationController do
       post :dummy, :foo => {:password => "secret", :password_confirmation => "secret"}
   end
 
-  it "assigns the finish date for the view" do
-    get :dummy 
-    assigns[:finish_date].should == ApplicationController::FINISH_DATE
+  shared_examples_for "a 404 error" do
+    it "returns a status of 404" do
+      response.response_code.should == 404
+    end
+
+    it "renders the 404 template" do
+      response.should render_template("/404")
+    end
+  end
+
+  describe "when a routing error is raised" do
+    before do
+      get :raise_routing_error
+    end
+
+    it_should_behave_like "a 404 error"
+  end
+
+  describe "when an unknown action exception is raised" do
+    before do
+      get :raise_unknown_action
+    end
+
+    it_should_behave_like "a 404 error"
+  end
+
+  describe "when a missing template exception is raised" do
+    before do
+      get :raise_missing_template
+    end
+
+    it_should_behave_like "a 404 error"
   end
 
   describe "current user" do

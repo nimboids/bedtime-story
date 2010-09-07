@@ -16,6 +16,12 @@ describe ApplicationHelper do
     end
   end
 
+  describe "finish date" do
+    it "should be 5pm on 1 October" do
+      helper.finish_date.should == Time.local(2010, 'oct', 1, 17, 0, 0).to_datetime
+    end
+  end
+
   describe "generating the link to the home page" do
     before do
       @controller = mock

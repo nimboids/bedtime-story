@@ -22,6 +22,10 @@ Feature: Home page and static information pages
     When I follow "Bedtime Story"
     Then I should be on the home page
 
+  Scenario: Missing page
+    When I go to a nonexistent page
+    Then I should see "The page you were looking for doesn't exist"
+
   @wip
   Scenario: Proper content on pages
     When I go to the home page

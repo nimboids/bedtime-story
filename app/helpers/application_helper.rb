@@ -10,6 +10,10 @@ module ApplicationHelper
     end
   end
 
+  def finish_date
+    Time.local(2010, 'oct', 1, 17, 0, 0).to_datetime
+  end
+
   def link_to_home
     link_class = (controller.controller_name == "home") ? "home_active" : "home_inactive"
     %(<li><a href="/" class="star" id="#{link_class}"><span>Home</span></a></li>)
