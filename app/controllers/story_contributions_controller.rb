@@ -18,6 +18,7 @@ class StoryContributionsController < InheritedResources::Base
     selected_id = params[:story_contribution_id]
     edited_text = params["story_contribution_text_#{selected_id}"]
     StoryContribution.approve selected_id, current_user, edited_text
+    expire_fragment "story"
     flash[:notice] = "Contribution approved"
     update_twitter edited_text
     redirect_to :root

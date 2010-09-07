@@ -1,4 +1,6 @@
 Feature: Contributing to the story
+  Background:
+    Given the story is not cached
 
   @javascript
   Scenario: Initial focus on page load

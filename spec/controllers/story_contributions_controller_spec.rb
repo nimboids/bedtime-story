@@ -81,6 +81,11 @@ describe StoryContributionsController do
         do_post
       end
 
+      it "invalidates the story cache for the home page" do
+        controller.should_receive(:expire_fragment).with "story"
+        do_post
+      end
+
       context "when successful" do
         before do
           StoryContribution.stub(:approve).and_return true

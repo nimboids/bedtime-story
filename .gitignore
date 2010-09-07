@@ -14,3 +14,4 @@ webrat*html
 *.swp
 .idea/**
 capybara-*.html
+public/stylesheets/all.css

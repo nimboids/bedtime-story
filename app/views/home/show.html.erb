@@ -4,7 +4,9 @@
 <div id="book">
   <div id="story">
     <p id="opening">Once upon a time...</p>
-    <%= render :partial => "story_contribution" , :collection => @story_contributions %>
+    <% cache "story" do -%>
+      <%= render :partial => "story_contribution" , :collection => StoryContribution.approved %>
+    <% end -%>
   </div>
 </div>
 <% form_for :story_contribution, :url => {:controller => "story_contributions", :action => "create"}, :html => {:id => "contribution"} do |f| %>

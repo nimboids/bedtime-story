@@ -87,7 +87,7 @@ describe StoryContribution do
       def do_approve
         StoryContribution.approve @contrib_2.id, @approver, "X" * 141
       end
-      
+
       it "does not mark the contribution as approved" do
         lambda {do_approve}
         @contrib_2.reload.approver.should be_nil

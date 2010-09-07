@@ -1,3 +1,7 @@
+Given %r/^the story is not cached/ do
+  ActionController::Base.new.expire_fragment "story"
+end
+
 Then %r/^the story should be:$/ do |table|
   table.raw.flatten.each do |para|
     Then %(I should see "#{para}" within "#story")
@@ -18,4 +22,5 @@ When %r/^a moderator has approved my contribution$/ do
   story_contribution = StoryContribution.last
   story_contribution.approver_id = 1
   story_contribution.save!
+  Given %(the story is not cached)
 end
