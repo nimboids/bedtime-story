@@ -36,7 +36,7 @@ a#donate_active, a#donate_inactive:hover, a#donate_inactive:active {background-i
 #contribution .valid {color:green}
 #contribution .invalid {color:red}
 blockquote {margin:5px;padding:10px;background-color:#ccc}
-.panel {background-color:white;color:black;padding:10px;margin-bottom:20px}
+.panel {background-color:#ccc;color:black;padding:10px;margin-bottom:20px}
 .panel p {margin:10px 0 0 0}
 .panel *:first-child {margin-top:0}
 #intro {font-size:90%}
