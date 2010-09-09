@@ -84,13 +84,5 @@ function roundPanelCorners() {
 }
 
 function fixPngsForIe6() {
-  $('#header,#right_sidebar,.star,.textarea_wrapper,#book,#flash_notice,#flash_errors,.panel_top,.panel_bottom').supersleight({shim: '/images/transparent.gif'});
-  if (jQuery.browser.msie) {
-    if (parseFloat(jQuery.browser.version) < 8) {
-      $(".panel").css("background-color", "white");
-    }
-    if (jQuery.browser.version == "6.0") {
-      $(".panel_top,#flash_notice,#flash_errors").css("top", "1px");
-    }
-  }
+  $('#header,.star,#book').supersleight({shim: '/images/transparent.gif'});
 }
