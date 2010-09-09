@@ -21,7 +21,6 @@ Feature: Admin approval of story contributions
     Then I should see "Contribution approved"
     When I go to the home page
     Then the story should be:
-      | Once upon a time...   |
       | there was a king      |
       | who lived in a castle |
     When I go to the admin page
@@ -42,7 +41,6 @@ Feature: Admin approval of story contributions
     Then I should see "Contribution approved"
     When I go to the home page
     Then the story should be:
-      | Once upon a time...              |
       | there was a king                 |
       | who lived in an enchanted castle |
     And "who lived in an enchanted castle" should be posted to Twitter

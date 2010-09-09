@@ -23,7 +23,7 @@ describe StoryContributionsController do
 
       it "puts a message in the flash" do
         post :create
-        flash[:notice].should == "Thank you! Your contribution is awaiting moderation"
+        flash[:notice].should == "Thank you!<br />Please check back soon to see whether your contribution was chosen."
       end
     end
 

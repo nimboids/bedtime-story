@@ -28,7 +28,7 @@ a#donate_inactive:link, a#donate_inactive:visited {background-image:url('/images
 a#donate_active, a#donate_inactive:hover, a#donate_inactive:active {background-image:url('/images/donate-active.png')}
 #book {height:344px;background-image:url('/images/book.png');background-repeat:no-repeat}
 #story {color:#222;height:260px;width:260px;margin-left:320px;position:relative;top:30px;overflow:auto}
-#story p#opening {font-weight:bold;font-size:120%}
+#story h3 {font-size:120%;font-variant:small-caps;align:center}
 #story p {margin:0 0.5em 0.5em 0.5em;text-align:center}
 #contribution label {font-size:120%;font-weight:bold;color:white}
 #contribution .textarea_wrapper {height:100px;background-image:url('/images/textarea.png');background-repeat:no-repeat}
@@ -37,6 +37,7 @@ a#donate_active, a#donate_inactive:hover, a#donate_inactive:active {background-i
 #contribution .valid, #contribution .invalid {font-size:90%;margin-left:20px;line-height:1em}
 #contribution .valid {color:green}
 #contribution .invalid {color:red}
+blockquote {margin:5px;padding:10px;background-color:#ccc}
 .panel, #flash_notice, #flash_errors {border-left:1px solid black;border-right:1px solid black;color:black;padding:10px}
 .panel {background-color:white}
 .panel_top {background:transparent url('/images/panel-top.png') no-repeat top left;height:15px}

@@ -25,18 +25,3 @@ Feature: Home page and static information pages
   Scenario: Missing page
     When I go to a nonexistent page
     Then I should see "The page you were looking for doesn't exist"
-
-  @wip
-  Scenario: Proper content on pages
-    When I go to the home page
-    Then I should not see "TODO"
-    When I follow "Byte Night stories"
-    Then I should not see "TODO"
-    When I follow "Hints and tips"
-    Then I should not see "TODO"
-    When I follow "Top bedtime story phrases"
-    Then I should not see "TODO"
-    When I follow "Famous contributors"
-    Then I should not see "TODO"
-    When I follow "Terms & Conditions"
-    Then I should not see "TODO"

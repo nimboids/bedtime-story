@@ -4,7 +4,7 @@ class StoryContributionsController < InheritedResources::Base
   def create
     create! do |success, failure|
       success.html do
-        flash[:notice] = "Thank you! Your contribution is awaiting moderation"
+        flash[:notice] = "Thank you!<br />Please check back soon to see whether your contribution was chosen."
         redirect_to root_url
       end
       failure.html do

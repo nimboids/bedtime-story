@@ -1,9 +1,39 @@
 <div class="panel">
-  <p class="first last">Welcome to the Byte Night Bedtime Story&hellip;</p>
+  <p class="first">Welcome to the Byte Night Bedtime Story in support of
+    Action for Children&rsquo;s annual charity sleep-out event that takes place in
+    various locations across the UK, this year on 8th October.</p>
+  <p class=last">Inspired by the
+    real life story of Emily, it hopes to achieve the grand status of the
+    longest ever user-generated bedtime story in UK history. Help us achieve
+    this by writing your part in no more than 140 characters. Just read the
+    last submission to see what Emily and her friends were up to, and from
+    there continue the story&hellip;</p>
 </div>
 <div id="book">
   <div id="story">
-    <p id="opening">Once upon a time...</p>
+    <h3>Emily, The Extraordinary</h3>
+
+    <p>Emily knew she was different to other 6 year olds. It
+      wasn't that she could fly or turn frogs into princes or had a fairy godmother
+      who could help tidy up, make her a dress and send her to a ball like in the
+      books teachers sometimes read to them at school. Nor did Emily feel like her
+      life resembled those of other children in her class. They had mums and dads who
+      took them to school, made them packed lunches and picked them up at 4pm with
+      hugs and kisses and, she guessed, tucked them into bed at night and read them a
+      story too.</p>
+
+    <p>"No" Emily thought, one very ordinary grey Wednesday as she climbed off the
+      mattress on the floor where her 2 brothers and sister still lay sleeping, “my
+      life isn't like theirs at all. I don't know where dad is and mum doesn't seem
+      to care about anything anymore. I can cook and I can clean and I can make
+      dinner for us all for under a fiver, but” she pondered, “why are other children
+      at school sometimes horrid to us and call us names like 'tramps' and 'smellies'
+      just because we haven't got new clothes like them?” That thought and knowing
+      that she had to get Alex and Jack and Kiera up to face another day of it made
+      Emily's heart hurt and she wished hard that she had someone to tell these
+      things to.</p>
+
+    <p>It was at that moment...</p>
     <% cache "story" do -%>
       <%= render :partial => "story_contribution" , :collection => StoryContribution.approved %>
     <% end -%>
