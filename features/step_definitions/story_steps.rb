@@ -2,6 +2,10 @@ Given %r/^the story is not cached/ do
   ActionController::Base.new.expire_fragment "story"
 end
 
+Given %r/^the site is open for contributions$/ do
+  Given %(it is 12:00)
+end
+
 Then %r/^the story should be:$/ do |table|
   table.raw.flatten.each do |para|
     Then %(I should see "#{para}" within "#story")

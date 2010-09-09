@@ -14,6 +14,10 @@ module ApplicationHelper
     Time.local(2010, 'oct', 1, 17, 0, 0).to_datetime
   end
 
+  def open_for_contributions?
+    (8..22).include? Time.now.hour
+  end
+
   def link_to_home
     link_class = (controller.controller_name == "home") ? "home_active" : "home_inactive"
     %(<li><a href="/" class="star" id="#{link_class}"><span>Home</span></a></li>)

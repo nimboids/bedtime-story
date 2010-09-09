@@ -11,6 +11,14 @@ When %r/^I fill in "([^"]*)" with a (\d+) character string$/ do |field, characte
   When %(I fill in "#{field}" with "#{string}")
 end
 
+Then %r/^the textarea should be disabled$/ do
+  find("#story_contribution_text")["disabled"].should_not be_nil
+end
+
+Then %r/^the textarea should be enabled$/ do
+  find("#story_contribution_text")["disabled"].should be_nil
+end
+
 Then %r/^the submit button should be disabled$/ do
   find("#story_contribution_submit")["disabled"].should_not be_nil
 end

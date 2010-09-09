@@ -10,6 +10,13 @@ describe HomeController do
       2.times {get :show}
     end
 
+    it "assigns a new story contribution for the view" do
+      story_contribution = StoryContribution.new
+      StoryContribution.stub(:new).and_return story_contribution
+      get :show
+      assigns[:story_contribution].should == story_contribution
+    end
+
     it "renders the show template" do
       StoryContribution.stub(:approved).and_return []
       get :show

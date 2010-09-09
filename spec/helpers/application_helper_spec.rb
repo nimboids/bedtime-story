@@ -1,4 +1,5 @@
 require File.expand_path "../../spec_helper", __FILE__
+require "timecop"
 
 describe ApplicationHelper do
   describe "generating a page title" do
@@ -19,6 +20,34 @@ describe ApplicationHelper do
   describe "finish date" do
     it "should be 5pm on 1 October" do
       helper.finish_date.should == Time.local(2010, 'oct', 1, 17, 0, 0).to_datetime
+    end
+  end
+
+  describe "opening times" do
+    def freeze_time_to hours, minutes
+      now = Time.now
+      time = Time.local now.year, now.month, now.day, hours, minutes, 0
+      Timecop.freeze time
+    end
+
+    context "before 8 a.m." do
+      before { freeze_time_to 7,59 }
+      it { helper.should_not be_open_for_contributions }
+    end
+
+    context "from 8 a.m." do
+      before { freeze_time_to 8,00 }
+      it { helper.should be_open_for_contributions }
+    end
+
+    context "before 11 p.m." do
+      before { freeze_time_to 22,59 }
+      it { helper.should be_open_for_contributions }
+    end
+
+    context "from 11 p.m." do
+      before { freeze_time_to 23,00 }
+      it { helper.should_not be_open_for_contributions }
     end
   end
 
