@@ -41,10 +41,8 @@
 </div>
 <% form_for :story_contribution, :url => {:controller => "story_contributions", :action => "create"}, :html => {:id => "contribution"} do |f| %>
   <%= f.label :text, "Now, you continue the story&hellip;" %>
-  <div class="panel">
-    <%= f.text_area :text, :rows => 4, :cols => 50 %>
-    <p id="characters_remaining" class="valid">140 characters remaining</p>
-  </div>
+  <%= f.text_area :text, :rows => 4, :cols => 50, :class => "panel" %>
+  <p id="characters_remaining" class="valid">140 characters remaining</p>
   <%= f.label :name, "Your name (optional)" %>
   <%= f.text_field :name %>
   <%= f.submit "Submit" %>
