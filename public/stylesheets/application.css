@@ -4,12 +4,12 @@ body {background: black url('/images/starry-sky.jpg') repeat top left!important;
 #header img#action_for_children {margin:20px 0 0 80px;float:left}
 #header img#byte_night {margin-top:20px;float:right}
 h1 {margin-top:20px!important;vertical-align:top;text-align:center;font-size:40px;color:#535249}
-.sidebar {background-image:url('/images/sidebar.png');height:500px;color:#535249}
-.sidebar p {margin:10px}
+.sidebar {color:#535249;text-align:center}
+.sidebar p, {margin:20px 10px 10px 10px}
+#add_this {margin:10px -5px 5px -5px}
 .sidebar h2 {font-size:20px;margin-top:5px}
 .number {font-size:250%;line-height:1.3}
-.text {font-variant:small-caps}
-#right_sidebar {text-align:center}
+.sidebar .text {font-variant:small-caps}
 ul.links {margin:0}
 ul.links li {list-style-type:none;margin:0 auto;text-align:center}
 ul.links a {display:block;width:100px;height:69px;background-repeat:no-repeat}
@@ -31,32 +31,22 @@ a#donate_active, a#donate_inactive:hover, a#donate_inactive:active {background-i
 #story h3 {font-size:120%;font-variant:small-caps;text-align:center}
 #story p {margin:0 0.5em 0.5em 0.5em;text-align:center}
 #contribution label {font-size:120%;font-weight:bold;color:white}
-#contribution .textarea_wrapper {height:100px;background-image:url('/images/textarea.png');background-repeat:no-repeat}
-#contribution textarea {width:595px;height:60px;margin:10px 10px 0 10px;border:none;font-size:120%;font-family:'Helvetica Neue',Arial,'Liberation Sans',FreeSans,sans-serif}
+#contribution textarea {width:580px;height:60px;margin:10px 10px 0 10px;border:none;font-size:120%;font-family:'Helvetica Neue',Arial,'Liberation Sans',FreeSans,sans-serif}
 #contribution #story_contribution_name {width:250px}
 #contribution .valid, #contribution .invalid {font-size:90%;margin-left:20px;line-height:1em}
 #contribution .valid {color:green}
 #contribution .invalid {color:red}
 blockquote {margin:5px;padding:10px;background-color:#ccc}
-.panel, #flash_notice, #flash_errors {border-left:1px solid black;border-right:1px solid black;color:black;padding:10px}
-.panel {background-color:white}
-.panel_top {background:transparent url('/images/panel-top.png') no-repeat top left;height:15px}
-.panel_bottom {background:transparent url('/images/panel-bottom.png') no-repeat top left;height:20px;margin-bottom:2em}
+.panel {background-color:white;color:black;padding:10px;margin-bottom:20px}
+.panel p {margin:10px 0 0 0}
+.panel *:first-child {margin-top:0}
+#intro {font-size:90%}
 #flash_notice, #flash_errors {font-size:120%;text-align:center}
 #flash_notice {background-color:#6fb33a}
-#flash_notice_top {background:transparent url('/images/flash-notice-top.png') no-repeat top left;height:15px}
-#flash_notice_bottom {background:transparent url('/images/flash-notice-bottom.png') no-repeat top left;height:20px;margin-bottom:2em}
 #flash_errors {background-color:#f24020}
-#flash_errors_top {background:transparent url('/images/flash-errors-top.png') no-repeat top left;height:15px}
-#flash_errors_bottom {background:transparent url('/images/flash-errors-bottom.png') no-repeat top left;height:20px;margin-bottom:2em}
-.panel_top {background:transparent url('/images/panel-top.png') no-repeat top left;height:15px}
-.panel_bottom {background:transparent url('/images/panel-bottom.png') no-repeat top left;height:20px;margin-bottom:2em}
-.panel > *.first, #flash_notice > p, #flash_errors > p {padding-top:0;margin-top:0}
-.panel > *.last, #flash_notice > p, #flash_errors > p {padding-bottom:0;margin-bottom:0}
 .story_approval_button {position:relative;top:-25px}
 .edit_story_contribution {width:550px;height:50px}
 .author {font-style:italic}
-#right_sidebar p, #add_this {margin-top:20px}
 #footer {border-top:1px solid #ab9b84;margin-top:1em;padding-bottom:0.5em}
 #footer p {color:white;text-align:center;font-size:80%}
 #footer a {color:white}

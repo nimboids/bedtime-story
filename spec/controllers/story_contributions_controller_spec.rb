@@ -39,9 +39,10 @@ describe StoryContributionsController do
         response.should render_template("home/show.html.erb")
       end
 
-      it "puts a message in the flash" do
+      it "puts a message in the 'now' flash" do
         post :create
-        flash[:errors].should == @messages
+        response.flash[:errors].should == @messages
+        flash[:errors].should be_nil
       end
     end
   end

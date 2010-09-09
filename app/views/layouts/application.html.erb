@@ -9,7 +9,7 @@
     <!--[if IE 6]>
     <%= stylesheet_link_tag "960-ie", :cache => true %>
     <![endif]-->
-    <%= javascript_include_tag "jquery", "supersleight.plugin", "application", "google_analytics" %>
+    <%= javascript_include_tag "jquery", "supersleight.plugin", "jquery.corner", "application", "google_analytics" %>
   </head>
   <body>
     <div id="header" class="container_12">
@@ -32,27 +32,29 @@
       </div>
       <div id="main" class="grid_8 ">
         <% if flash[:notice] -%>
-          <%= content_tag :div, "<p>#{flash[:notice]}</p>", :id => "flash_notice" %>
+          <%= content_tag :div, "<p>#{flash[:notice]}</p>", :id => "flash_notice", :class => "panel" %>
         <% end -%>
         <% if flash[:errors] -%>
-          <%= content_tag :div, "<p>#{flash[:errors].join('<br />')}</p>", :id => "flash_errors" %>
+          <%= content_tag :div, "<p>#{flash[:errors].join('<br />')}</p>", :id => "flash_errors", :class => "panel" %>
         <% end -%>
         <%= yield %>
       </div>
       <div id="right_sidebar" class="grid_2 sidebar">
-        <%= render :partial => 'home/countdown_timer' %>
-        <p>Follow the<br />story with<br />
-          <%= link_to "Twitter", "http://twitter.com/bnbedtimestory" %>
-          or <%= link_to 'RSS <img src="/images/rss.png" alt="RSS" width="14" height="14" />', rss_path %></p>
-        <!-- AddThis Button BEGIN -->
-        <script type="text/javascript">var addthis_config = {"data_track_clickback":true};</script>
-        <div id="add_this">
-          <a class="addthis_button" href="http://www.addthis.com/bookmark.php?v=250&amp;username=bytenightbedtimestory">
-            <img src="http://s7.addthis.com/static/btn/v2/lg-share-en.gif" width="125" height="16" alt="Bookmark and Share" style="border:0"/>
-          </a>
-          <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=kjbuckley"></script>
+        <div class="panel">
+          <%= render :partial => 'home/countdown_timer' %>
+          <p>Follow the story<br />
+            with <%= link_to "Twitter", "http://twitter.com/bnbedtimestory" %>
+            <br />or <%= link_to 'RSS <img src="/images/rss.png" alt="RSS" width="14" height="14" />', rss_path %></p>
+          <!-- AddThis Button BEGIN -->
+          <script type="text/javascript">var addthis_config = {"data_track_clickback":true};</script>
+          <div id="add_this">
+            <a class="addthis_button" href="http://www.addthis.com/bookmark.php?v=250&amp;username=bytenightbedtimestory">
+              <img src="http://s7.addthis.com/static/btn/v2/lg-share-en.gif" width="125" height="16" alt="Bookmark and Share" style="border:0"/>
+            </a>
+            <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=kjbuckley"></script>
+          </div>
+          <!-- AddThis Button END -->
         </div>
-        <!-- AddThis Button END -->
       </div>
     </div>
     <div class="clear"></div>

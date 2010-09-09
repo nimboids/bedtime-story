@@ -1,11 +1,11 @@
-<div class="panel">
-  <p class="first">Welcome to the Byte Night Bedtime Story in support of
+<div class="panel" id="intro">
+  <p>Welcome to the Byte Night Bedtime Story, in support of
     Action for Children&rsquo;s annual charity sleep-out event that takes place in
     various locations across the UK, this year on 8th October.</p>
-  <p class="last">Inspired by the
+  <p>Inspired by the
     real life story of Emily, it hopes to achieve the grand status of the
-    longest ever user-generated bedtime story in UK history. Help us achieve
-    this by writing your part in no more than 140 characters. Just read the
+    longest ever user-generated bedtime story in UK history. Help us make
+    this happen by writing your part in no more than 140 characters. Just read the
     last submission to see what Emily and her friends were up to, and from
     there continue the story&hellip;</p>
 </div>
@@ -35,13 +35,13 @@
 
     <p>It was at that moment...</p>
     <% cache "story" do -%>
-      <%= render :partial => "story_contribution" , :collection => StoryContribution.approved %>
+      <%= render :partial => "/home/story_contribution" , :collection => StoryContribution.approved %>
     <% end -%>
   </div>
 </div>
 <% form_for :story_contribution, :url => {:controller => "story_contributions", :action => "create"}, :html => {:id => "contribution"} do |f| %>
   <%= f.label :text, "Now, you continue the story&hellip;" %>
-  <div class="textarea_wrapper">
+  <div class="panel">
     <%= f.text_area :text, :rows => 4, :cols => 50 %>
     <p id="characters_remaining" class="valid">140 characters remaining</p>
   </div>

@@ -2,7 +2,7 @@ $(document).ready(function() {
   scrollToEndOfStory();
   setupContributionForm();
   setAddThisTitle();
-  addPanelBorders();
+  roundPanelCorners();
   fixPngsForIe6();
   setTimeout(updateCountdown, 1000);
 });
@@ -20,6 +20,7 @@ function setupContributionForm() {
     textarea.keyup(updateCharactersRemaining);
     textarea.focus();
   }
+  window.scrollTo(0, 0);
 }
 
 function setAddThisTitle() {
@@ -78,10 +79,8 @@ function updateCountdown() {
   setTimeout(updateCountdown, 1000);
 }
 
-function addPanelBorders() {
-  $(".panel").before('<div class="panel_top" />').after('<div class="panel_bottom" />');
-  $("#flash_notice").before('<div id="flash_notice_top" />').after('<div id="flash_notice_bottom" />');
-  $("#flash_errors").before('<div id="flash_errors_top" />').after('<div id="flash_errors_bottom" />');
+function roundPanelCorners() {
+  $(".panel").corner();
 }
 
 function fixPngsForIe6() {
