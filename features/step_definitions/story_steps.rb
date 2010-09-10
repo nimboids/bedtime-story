@@ -3,7 +3,7 @@ Given %r/^the story is not cached/ do
 end
 
 Given %r/^the site is open for contributions$/ do
-  Given %(it is 12:00)
+  Given %(it is 12:00 GMT)
 end
 
 Then %r/^the story should be:$/ do |table|

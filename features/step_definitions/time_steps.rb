@@ -2,9 +2,9 @@ require "timecop"
 
 World ApplicationHelper
 
-Given %r/^it is (\d+):(\d+)$/ do |hours, minutes|
-  now = Time.now
-  time = Time.local now.year, now.month, now.day, hours, minutes, 0
+Given %r/^it is (\d+):(\d+) GMT$/ do |hours, minutes|
+  now = Time.now.getgm
+  time = Time.gm now.year, now.month, now.day, hours, minutes, 0
   Timecop.freeze time
 end
 

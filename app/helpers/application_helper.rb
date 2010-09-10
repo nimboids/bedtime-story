@@ -11,11 +11,12 @@ module ApplicationHelper
   end
 
   def finish_date
-    Time.local(2010, 'oct', 1, 17, 0, 0).to_datetime
+    # in GMT!
+    Time.gm(2010, 'oct', 1, 16, 0, 0).to_datetime
   end
 
   def open_for_contributions?
-    (8..22).include? Time.now.hour
+    (7..21).include? Time.now.getgm.hour
   end
 
   def link_to_home
