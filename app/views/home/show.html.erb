@@ -41,7 +41,7 @@
 </div>
 <% form_for :story_contribution, :url => {:controller => "story_contributions", :action => "create"}, :html => {:id => "contribution"} do |f| %>
   <%= f.label :text, "Now, you continue the story&hellip;" %>
-  <% @story_contribution.text = "Shhh! Emily is sleeping!\nCome back after 8 a.m. (UK time)" unless open_for_contributions? -%>
+  <% @story_contribution.text = "Shhh! Emily is sleeping!\nPlease come back after 8 a.m. (UK time)." unless open_for_contributions? -%>
   <%= f.text_area :text, :rows => 4, :cols => 50, :class => "panel",
         :disabled => open_for_contributions? ? nil : "disabled" %>
   <p id="characters_remaining" class="valid">140 characters remaining</p>
