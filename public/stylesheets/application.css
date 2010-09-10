@@ -24,6 +24,8 @@ a#phrases_inactive:link, a#phrases_inactive:visited {background-image:url('/imag
 a#phrases_active, a#phrases_inactive:hover, a#phrases_inactive:active {background-image:url('/images/phrases-active.png')}
 a#famous_inactive:link, a#famous_inactive:visited {background-image:url('/images/famous.png')}
 a#famous_active, a#famous_inactive:hover, a#famous_inactive:active {background-image:url('/images/famous-active.png')}
+a#faq_inactive:link, a#faq_inactive:visited {background-image:url('/images/faq.png')}
+a#faq_active, a#faq_inactive:hover, a#faq_inactive:active {background-image:url('/images/faq-active.png')}
 a#donate_inactive:link, a#donate_inactive:visited {background-image:url('/images/donate.png')}
 a#donate_active, a#donate_inactive:hover, a#donate_inactive:active {background-image:url('/images/donate-active.png')}
 #book {height:344px;background-image:url('/images/book.png');background-repeat:no-repeat}
@@ -40,6 +42,8 @@ blockquote {margin:5px;padding:10px;background-color:#ccc}
 .panel p {margin:10px 0 0 0}
 .panel *:first-child {margin-top:0}
 .secondary {background-color:#ccc!important}
+dt {font-size:110%;font-weight:bold;margin-top:0.5em}
+dd {margin-left:1em}
 #intro {font-size:90%}
 #flash_notice, #flash_errors {font-size:120%;text-align:center}
 #flash_notice {background-color:#6fb33a}
