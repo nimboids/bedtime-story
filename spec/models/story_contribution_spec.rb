@@ -4,6 +4,7 @@ describe StoryContribution do
   it { should have_db_column(:text).of_type(:string) }
   it { should have_db_column(:original_text).of_type(:string) }
   it { should have_db_column(:name).of_type(:string) }
+  it { should have_db_column(:email).of_type(:string) }
   it { should have_db_column(:created_at).of_type(:datetime) }
   it { should have_db_column(:updated_at).of_type(:datetime) }
   it { should have_db_column(:approver_id).of_type(:integer) }
@@ -11,6 +12,10 @@ describe StoryContribution do
   it { should validate_presence_of(:text) }
   it { should ensure_length_of(:text).is_at_most(140) }
   it { should ensure_length_of(:name).is_at_most(100) }
+  it { should ensure_length_of(:email).is_at_most(100) }
+  it { should allow_mass_assignment_of(:text) }
+  it { should allow_mass_assignment_of(:name) }
+  it { should allow_mass_assignment_of(:email) }
   it { should_not allow_mass_assignment_of(:original_text) }
   it { should_not allow_mass_assignment_of(:approver) }
   it { should_not allow_mass_assignment_of(:approver_id) }

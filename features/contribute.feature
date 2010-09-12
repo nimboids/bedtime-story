@@ -19,10 +19,11 @@ Feature: Contributing to the story
     Then the story should be:
       | there was a castle on the hill |
 
-  Scenario: Moderated contribution, providing name
+  Scenario: Moderated contribution, providing name and e-mail address
     When I go to the home page
     And I fill in "Now, you continue the story" with "there was a castle on the hill"
-    And I fill in "Your name (optional)" with "Mickey Mouse"
+    And I fill in "Name (optional)" with "Mickey Mouse"
+    And I fill in "E-mail address (optional)" with "mm@example.com"
     And I press "Submit"
     Then I should see "Thank you!"
     And I should not see "there was a castle on the hill"
@@ -30,6 +31,7 @@ Feature: Contributing to the story
     And I go to the home page
     Then the story should be:
       | there was a castle on the hill |
+    And my contribution should be credited to "Mickey Mouse", "mm@example.com"
 
   @javascript
   Scenario: Live validation of text length

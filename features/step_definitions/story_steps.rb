@@ -28,3 +28,9 @@ When %r/^a moderator has approved my contribution$/ do
   story_contribution.save!
   Given %(the story is not cached)
 end
+
+Then %r/^my contribution should be credited to "([^"]*)", "([^"]*)"$/ do |name, email|
+  story_contribution = StoryContribution.last
+  story_contribution.name.should == name
+  story_contribution.email.should == email
+end

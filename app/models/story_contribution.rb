@@ -5,7 +5,8 @@ class StoryContribution < ActiveRecord::Base
   validates_presence_of :text
   validates_length_of :text, :maximum => 140
   validates_length_of :name, :maximum => 100, :allow_blank => true
-  attr_accessible :text, :name
+  validates_length_of :email, :maximum => 100, :allow_blank => true
+  attr_accessible :text, :name, :email
 
   def before_create
     self.original_text = text

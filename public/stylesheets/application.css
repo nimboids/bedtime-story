@@ -32,9 +32,8 @@ a#donate_active, a#donate_inactive:hover, a#donate_inactive:active {background-i
 #story {color:#222;height:260px;width:260px;margin-left:320px;position:relative;top:30px;overflow:auto}
 #story h3 {font-size:120%;font-variant:small-caps;text-align:center}
 #story p {margin:0 0.5em 0.5em 0.5em;text-align:center}
-#contribution label {font-size:120%;font-weight:bold;color:white}
+#contribution label {font-size:120%;color:white}
 #contribution textarea {width:600px;height:60px;margin-bottom:0;font-size:120%;font-family:'Helvetica Neue',Arial,'Liberation Sans',FreeSans,sans-serif}
-#contribution #story_contribution_name {width:250px}
 #contribution .valid {color:green}
 #contribution .invalid {color:red}
 blockquote {margin:5px;padding:10px;background-color:#ccc}
