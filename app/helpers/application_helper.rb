@@ -12,7 +12,7 @@ module ApplicationHelper
 
   def finish_date
     # in GMT!
-    Time.gm(2010, 'oct', 1, 16, 0, 0).to_datetime
+    Time.gm(2010, 'oct', 1, 17, 0, 0).to_datetime
   end
 
   def open_for_contributions?
