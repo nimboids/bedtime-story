@@ -11,6 +11,7 @@ Feature: Contributing to the story
   Scenario: Moderated anonymous contribution
     When I go to the home page
     And I fill in "Now, you continue the story" with "there was a castle on the hill"
+    And I check "I have read and accept the terms and conditions"
     And I press "Submit"
     Then I should see "Thank you!"
     And I should not see "there was a castle on the hill"
@@ -24,6 +25,7 @@ Feature: Contributing to the story
     And I fill in "Now, you continue the story" with "there was a castle on the hill"
     And I fill in "Name (optional)" with "Mickey Mouse"
     And I fill in "E-mail address (optional)" with "mm@example.com"
+    And I check "I have read and accept the terms and conditions"
     And I press "Submit"
     Then I should see "Thank you!"
     And I should not see "there was a castle on the hill"
@@ -32,6 +34,12 @@ Feature: Contributing to the story
     Then the story should be:
       | there was a castle on the hill |
     And my contribution should be credited to "Mickey Mouse", "mm@example.com"
+
+  Scenario: Not accepting terms and conditions
+    When I go to the home page
+    And I fill in "Now, you continue the story" with "there was a castle on the hill"
+    And I press "Submit"
+    Then I should see "Terms and conditions must be accepted"
 
   @javascript
   Scenario: Live validation of text length
@@ -56,24 +64,28 @@ Feature: Contributing to the story
   Scenario: A 0 character story contribution is rejected
     When I go to the home page
     And I fill in "Now, you continue the story" with a 0 character string
+    And I check "I have read and accept the terms and conditions"
     And I press "Submit"
     Then I should see "Text can't be blank"
 
   Scenario: A 1 character story contribution is accepted
     When I go to the home page
     And I fill in "Now, you continue the story" with a 1 character string
+    And I check "I have read and accept the terms and conditions"
     And I press "Submit"
     Then I should see "Thank you!"
 
   Scenario: A 140 character story contribution is accepted
     When I go to the home page
     And I fill in "Now, you continue the story" with a 140 character string
+    And I check "I have read and accept the terms and conditions"
     And I press "Submit"
     Then I should see "Thank you!"
 
   Scenario: A 141 character story contribution is rejected
     When I go to the home page
     And I fill in "Now, you continue the story" with a 141 character string
+    And I check "I have read and accept the terms and conditions"
     And I press "Submit"
     Then I should see "Text is too long (maximum is 140 characters)"
 

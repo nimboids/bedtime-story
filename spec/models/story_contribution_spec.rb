@@ -16,6 +16,7 @@ describe StoryContribution do
   it { should allow_mass_assignment_of(:text) }
   it { should allow_mass_assignment_of(:name) }
   it { should allow_mass_assignment_of(:email) }
+  it { should allow_mass_assignment_of(:terms_and_conditions) }
   it { should_not allow_mass_assignment_of(:original_text) }
   it { should_not allow_mass_assignment_of(:approver) }
   it { should_not allow_mass_assignment_of(:approver_id) }
@@ -24,6 +25,18 @@ describe StoryContribution do
   it { should_not allow_mass_assignment_of(:updated_at) }
 
   it { should belong_to(:approver) }
+
+  it "validates acceptance of terms and conditions on create" do
+    story_contribution = StoryContribution.create
+    story_contribution.errors_on(:terms_and_conditions).should == ["must be accepted"]
+  end
+
+  it "does not validate acceptance of terms and conditions on update" do
+    story_contribution = Factory :story_contribution
+    story_contribution.terms_and_conditions = nil
+    story_contribution.save
+    story_contribution.errors_on(:terms_and_conditions).should be_empty
+  end
 
   it "defaults 'rejected' to false" do
     Factory(:story_contribution, :rejected => nil).rejected.should be_false
@@ -49,7 +62,7 @@ describe StoryContribution do
 
   context "on creation" do
     it "saves the original text" do
-      contrib = StoryContribution.create :text => "some text"
+      contrib = Factory :story_contribution, :text => "some text"
       contrib.reload.original_text.should == "some text"
     end
   end
