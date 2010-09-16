@@ -6,7 +6,7 @@ body {background: black url('/images/starry-sky.jpg') repeat top left!important;
 h1 {margin-top:20px!important;vertical-align:top;text-align:center;font-size:40px;color:#535249}
 .sidebar {color:#535249;text-align:center}
 .sidebar p {margin:20px 10px 10px 10px}
-#add_this {margin:10px -5px 5px -5px}
+#add_this #bt {margin:10px -5px 5px -5px}
 .sidebar h2 {font-size:20px;margin-top:5px}
 .number {font-size:250%;line-height:1.3}
 .sidebar .text {font-variant:small-caps}
