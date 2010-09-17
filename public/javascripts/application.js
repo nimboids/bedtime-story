@@ -84,5 +84,5 @@ function roundPanelCorners() {
 }
 
 function fixPngsForIe6() {
-  $('#header,.star,#book').supersleight({shim: '/images/transparent.gif'});
+  $('#header,.star,#book,#bt').supersleight({shim: '/images/transparent.gif'});
 }
