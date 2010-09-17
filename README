@@ -6,5 +6,5 @@ Assumes ruby 1.8.7 under rvm, with bundler 1.0.0.
   rvm jruby
   gem install celerity culerity
   cd ~/.rvm/bin
-  ln -s jruby-1.5.2 jruby
+  ln -s jruby-1.5.2 jruby  # or whichever version you have installed above
 
