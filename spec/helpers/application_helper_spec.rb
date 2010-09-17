@@ -19,7 +19,7 @@ describe ApplicationHelper do
 
   describe "finish date" do
     it "should be 6pm BST on 1 October" do
-      helper.finish_date.should == Time.gm(2010, 'oct', 1, 17, 0, 0).to_datetime
+      helper.finish_date.should == Time.gm(2010, 'oct', 8, 17, 0, 0).to_datetime
     end
   end
 
