@@ -186,4 +186,36 @@ describe StoryContributionsController do
       end
     end
   end
+
+  describe "approved" do
+    context "when not logged in" do
+      before do
+        controller.stub(:current_user).and_return nil
+      end
+
+      it "redirects to the login page" do
+        get :approved
+        response.should redirect_to new_user_session_url
+      end
+    end
+
+    context "when logged in" do
+      before do
+        @current_user = mock :user
+        controller.stub(:current_user).and_return @current_user
+        @approved_contributions = [mock_model StoryContribution, :text => 'blah']
+        StoryContribution.stub(:approved).and_return @approved_contributions
+      end
+
+      it "render the approved view" do
+        get :approved
+        response.should render_template('approved.html.erb')
+      end
+
+      it "assigns all the approved contributions for the view" do
+        get :approved
+        assigns[:story_contributions].should == @approved_contributions
+      end
+    end
+  end
 end

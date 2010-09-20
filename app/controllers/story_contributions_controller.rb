@@ -1,5 +1,5 @@
 class StoryContributionsController < InheritedResources::Base
-  before_filter :authenticate, :only => :approve
+  before_filter :authenticate, :only => [:approve, :approved]
 
   def create
     create! do |success, failure|
@@ -28,6 +28,11 @@ class StoryContributionsController < InheritedResources::Base
     redirect_to :root
   rescue ActiveRecord::RecordInvalid => e
     handle_save_error e
+  end
+
+  def approved
+    @story_contributions = StoryContribution.approved
+    render :action => 'approved'
   end
 
   private

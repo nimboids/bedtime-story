@@ -1,4 +1,5 @@
 <div class="panel">
+  <%= link_to 'Edit approved contributions', approved_story_contributions_url %>
   <h2>Story contributions awaiting moderation:</h2>
   <% form_tag approve_story_contributions_url do -%>
     <% @story_contributions.each do |story_contribution| -%>
