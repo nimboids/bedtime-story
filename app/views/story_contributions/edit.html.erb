@@ -1,0 +1,6 @@
+<% form_for @story_contribution, :url => story_contribution_url(@story_contribution), :method => :put do |f| %>
+  <label for="story_contribution_<%= @story_contribution.id %>">
+    <%= f.text_area :text, :rows => 4, :cols => 50 %>
+  </label>
+  <%= submit_tag "Update" %>
+<% end -%>

@@ -218,4 +218,70 @@ describe StoryContributionsController do
       end
     end
   end
+
+  describe "updating" do
+    context "when not logged in" do
+      before do
+        controller.stub(:current_user).and_return nil
+      end
+
+      it "redirects to the login page" do
+        put :update, :id => '1'
+        response.should redirect_to new_user_session_url
+      end
+    end
+
+    context "when logged in" do
+      before do
+        @current_user = mock :user
+        controller.stub(:current_user).and_return @current_user
+        @contrib = Factory :story_contribution
+        @id = @contrib.id.to_s
+        @edited_text = "edited text"
+        StoryContribution.stub :update
+      end
+
+      def do_put
+        put :update, :id => @id, :text =>  @edited_text
+      end
+
+      context "when successful" do
+        it "puts a status message in the flash" do
+          do_put
+          flash[:notice].should == "Contribution updated"
+        end
+
+        it "redirects back to the approved contributions page" do
+          do_put
+          response.should redirect_to(approved_story_contributions_url)
+        end
+
+        it "invalidates the story cache for the home page" do
+          controller.should_receive(:expire_fragment).with "story"
+          do_put
+        end
+      end
+
+      context "when unsuccessful" do
+        before do
+          @messages = %w(foo bar)
+          @errors = mock :errors, :full_messages => @messages
+          contribution = mock_model StoryContribution, :errors => @errors
+          StoryContribution.stub(:update_attributes).and_raise ActiveRecord::RecordInvalid.new(contribution)
+          # TODO what do we have to stub to get an error?
+        end
+
+        it "puts a message in the 'now' flash" do
+          do_put
+          response.flash[:errors].should == @messages
+          flash[:errors].should be_nil
+        end
+
+        it "renders the edit page" do
+          do_put
+          response.should render_template('edit.html.erb')
+        end
+      end
+    end
+  end
 end

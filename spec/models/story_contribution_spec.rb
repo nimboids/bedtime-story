@@ -48,6 +48,15 @@ describe StoryContribution do
       contrib_2 = Factory :story_contribution, :approver_id => 1
       StoryContribution.approved.should == [contrib_2]
     end
+
+    it "orders by id" do
+      contrib_1 = Factory :story_contribution, :approver_id => 1
+      contrib_2 = Factory :story_contribution, :approver_id => 1
+
+      contrib_1.update_attributes :text => 'some new text'
+
+      StoryContribution.approved.should == [contrib_1, contrib_2]
+    end
   end
 
   describe "'awaiting_approval' named scope" do

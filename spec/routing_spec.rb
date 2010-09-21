@@ -2,6 +2,8 @@ require File.expand_path "../spec_helper", __FILE__
 
 describe "Routing" do
   it { should route(:post, "/contributions").to(:controller => "story_contributions", :action => "create") }
+  it { should route(:get, "/contributions/1/edit").to(:controller => "story_contributions", :action => "edit", :id => "1") }
+  it { should route(:put, "/contributions/1").to(:controller => "story_contributions", :action => "update", :id => "1") }
   it { should route(:post, "/contributions/approve").to(:controller => "story_contributions", :action => "approve") }
   it { should route(:get, "/contributions/approved").to(:controller => "story_contributions", :action => "approved") }
   it { should route(:get, "/").to(:controller => "home", :action => "show") }

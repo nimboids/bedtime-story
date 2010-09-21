@@ -1,5 +1,5 @@
 class StoryContributionsController < InheritedResources::Base
-  before_filter :authenticate, :only => [:approve, :approved]
+  before_filter :authenticate, :only => [:approve, :approved, :update]
 
   def create
     create! do |success, failure|
@@ -16,6 +16,20 @@ class StoryContributionsController < InheritedResources::Base
 
   def index
     @story_contributions = StoryContribution.approved
+  end
+
+  def update
+    update! do |success, failure|
+      success.html do
+        expire_fragment "story"
+        flash[:notice] = "Contribution updated"
+        redirect_to approved_story_contributions_url
+      end
+      failure.html do
+        flash.now[:errors] = @story_contribution.errors.full_messages
+        render :action => "edit"
+      end
+    end
   end
 
   def approve
