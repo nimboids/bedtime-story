@@ -37,7 +37,6 @@ a#donate_active, a#donate_inactive:hover, a#donate_inactive:active {background-i
 #contribution .valid {color:green}
 #contribution .invalid {color:red}
 #contribution a {color:white}
-#story_contribution_text {-moz-border-radius:10px;-webkit-border-radius:10px;border-radius:10px}
 .text_field label {display:block;float:left;clear:left;width:200px}
 .text_field input {width:400px}
 blockquote {margin:5px;padding:10px;background-color:#ccc}

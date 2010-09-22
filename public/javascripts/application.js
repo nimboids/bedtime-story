@@ -81,6 +81,7 @@ function updateCountdown() {
 
 function roundPanelCorners() {
   $(".panel").corner();
+  $("#story_contribution_text").attr("style", "-moz-border-radius:10px;-webkit-border-radius:10px;border-radius:10px");
 }
 
 function fixPngsForIe6() {
