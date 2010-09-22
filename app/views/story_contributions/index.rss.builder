@@ -10,7 +10,7 @@ xml.rss :version => "2.0" do
         xml.title contribution.text
         xml.description ""
         xml.pubDate contribution.created_at.rfc822
-        xml.author contribution.name
+        xml.tag! "dc:creator", contribution.name
       end
     end
   end

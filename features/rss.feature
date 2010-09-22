@@ -8,7 +8,7 @@ Feature: RSS feed
       | who lived in a castle | 1           |      |
     When I go to the RSS page
     Then I should see "there was a king" within "item title"
-    And I should see "Fred" within "item author"
+    And I should see "Fred" within "item creator"
     And I should not see "who lived in a swamp"
     And I should not see "Bob"
     And I should see "who lived in a castle"
