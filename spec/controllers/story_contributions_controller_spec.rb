@@ -265,10 +265,9 @@ describe StoryContributionsController do
       context "when unsuccessful" do
         before do
           @messages = %w(foo bar)
-          @errors = mock :errors, :full_messages => @messages
-          contribution = mock_model StoryContribution, :errors => @errors
-          StoryContribution.stub(:update_attributes).and_raise ActiveRecord::RecordInvalid.new(contribution)
-          # TODO what do we have to stub to get an error?
+          @errors = mock :errors, :full_messages => @messages, :empty? => false
+          contribution = mock_model StoryContribution, :errors => @errors, :update_attributes => false, :null_object => true
+          StoryContribution.stub(:find).and_return contribution
         end
 
         it "puts a message in the 'now' flash" do
