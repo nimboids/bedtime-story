@@ -10,6 +10,11 @@ describe HomeController do
       2.times {get :show}
     end
 
+    it "allows the page to be cached for up to a second" do
+      get :show
+      response.headers["Cache-Control"].should == "public, max-age=1"
+    end
+
     it "assigns a new story contribution for the view" do
       story_contribution = StoryContribution.new
       StoryContribution.stub(:new).and_return story_contribution
