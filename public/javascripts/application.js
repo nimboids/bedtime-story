@@ -56,6 +56,7 @@ function updateCharactersRemaining() {
 }
 
 function updateCountdown() {
+  var keep_counting = true
   var seconds = $("#countdown_seconds").html() - 1;
   if (seconds < 0) {
     seconds = 59;
@@ -71,6 +72,7 @@ function updateCountdown() {
           hours = 0;
           minutes = 0;
           seconds = 0;
+          keep_counting = false
         }
         $("#countdown_days").html(days);
       }
@@ -79,9 +81,9 @@ function updateCountdown() {
     $("#countdown_minutes").html(minutes);
   }
   $("#countdown_seconds").html(seconds);
-  //if (days + hours + minutes + seconds > 0) {
+  if (keep_counting) {
     setTimeout(updateCountdown, 1000);
-  //}
+  }
 }
 
 function roundPanelCorners() {
