@@ -39,22 +39,28 @@
     <% end -%>
   </div>
 </div>
-<% form_for :story_contribution, :url => {:controller => "story_contributions", :action => "create"}, :html => {:id => "contribution"} do |f| %>
-  <%= f.label :text, "Now, you continue the story&hellip;" %>
-  <% @story_contribution.text = "Sshhh! The children are sleeping, so we can't accept contributions at this time. Please pop back between 8am and 11pm to make your contribution to the longest ever bedtime story, all in aid of Action for Children." unless open_for_contributions? -%>
-  <%= f.text_area :text, :rows => 4, :cols => 50, :disabled => open_for_contributions? ? nil : "disabled" %>
-  <div id="characters_remaining" class="valid">140 characters remaining</div>
-  <div class="text_field">
-    <%= f.label :name, "Name (optional)" %>
-    <%= f.text_field :name %>
-  </div>
-  <div class="text_field">
-    <%= f.label :email, "E-mail address (optional)" %>
-    <%= f.text_field :email %>
-  </div>
-  <br />
-  <%= f.check_box :terms_and_conditions %>
-  <%= f.label :terms_and_conditions, "I have read and accept the " + link_to("terms and conditions", page_url(:page => "terms")) %>
-  <br />
-  <%= f.submit "Submit", :disabled => open_for_contributions? ? nil : "disabled" %>
+<%- if Time.now >= finish_date -%>
+  <p>The book is now closed. Thank you to everyone who helped write the story.</p>
+<%- else -%>
+  <% form_for :story_contribution, :url => {:controller => "story_contributions", :action => "create"}, :html => {:id => "contribution"} do |f| %>
+    <%= f.label :text, "Now, you continue the story&hellip;" %>
+    <% @story_contribution.text = "Sshhh! The children are sleeping, so we can't accept contributions at this time. " +
+      "Please pop back between 8am and 11pm to make your contribution to the longest ever bedtime story, " +
+      "all in aid of Action for Children." unless open_for_contributions? -%>
+      <%= f.text_area :text, :rows => 4, :cols => 50, :disabled => open_for_contributions? ? nil : "disabled" %>
+      <div id="characters_remaining" class="valid">140 characters remaining</div>
+      <div class="text_field">
+        <%= f.label :name, "Name (optional)" %>
+        <%= f.text_field :name %>
+      </div>
+      <div class="text_field">
+        <%= f.label :email, "E-mail address (optional)" %>
+        <%= f.text_field :email %>
+      </div>
+      <br />
+      <%= f.check_box :terms_and_conditions %>
+      <%= f.label :terms_and_conditions, "I have read and accept the " + link_to("terms and conditions", page_url(:page => "terms")) %>
+      <br />
+      <%= f.submit "Submit", :disabled => open_for_contributions? ? nil : "disabled" %>
+    <% end %>
 <% end %>

@@ -1,2 +1,2 @@
 <p>The book will close in</p>
-<%= formatted_countdown(finish_date - DateTime.now) %>
+<%= formatted_countdown [0, finish_date - DateTime.now].max %>

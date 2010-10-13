@@ -106,19 +106,21 @@ describe ApplicationHelper do
   end
 
   describe "generating a countdown" do
-    it "formats a datetime" do
-      days, hours, minutes, seconds = 1, 2, 3, 4
-      days_fraction = Rational((days * 86400) + (hours * 3600) + (minutes * 60) + seconds,86400)
-      helper.formatted_countdown(days_fraction).should == %(<div class="countdown">
-      <div class="number" id="countdown_days">#{days}</div>
-      <div class="text">days</div>
-      <div class="number" id="countdown_hours">#{hours}</div>
-      <div class="text">hours</div>
-      <div class="number" id="countdown_minutes">#{minutes}</div>
-      <div class="text">minutes</div>
-      <div class="number" id="countdown_seconds">#{seconds}</div>
-      <div class="text">seconds</div>
-    </div>)
+    context "before the closing time" do
+      it "formats a datetime" do
+        days, hours, minutes, seconds = 1, 2, 3, 4
+        days_fraction = Rational((days * 86400) + (hours * 3600) + (minutes * 60) + seconds,86400)
+        helper.formatted_countdown(days_fraction).should have_tag("div.countdown") do
+          with_tag "div.text", :text => "days"
+          with_tag "div.number#countdown_days", :text => days
+          with_tag "div.text", :text => "hours"
+          with_tag "div.number#countdown_hours", :text => hours
+          with_tag "div.text", :text => "minutes"
+          with_tag "div.number#countdown_minutes", :text => minutes
+          with_tag "div.text", :text => "seconds"
+          with_tag "div.number#countdown_seconds", :text => seconds
+        end
+      end
     end
   end
 

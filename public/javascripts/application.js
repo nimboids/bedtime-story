@@ -68,6 +68,9 @@ function updateCountdown() {
         var days = $("#countdown_days").html() - 1;
         if (days < 0) {
           days = 0;
+          hours = 0;
+          minutes = 0;
+          seconds = 0;
         }
         $("#countdown_days").html(days);
       }
@@ -76,7 +79,9 @@ function updateCountdown() {
     $("#countdown_minutes").html(minutes);
   }
   $("#countdown_seconds").html(seconds);
-  setTimeout(updateCountdown, 1000);
+  if (days + hours + minutes + seconds > 0) {
+    setTimeout(updateCountdown, 1000);
+  }
 }
 
 function roundPanelCorners() {
