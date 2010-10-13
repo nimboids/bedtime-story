@@ -79,9 +79,9 @@ function updateCountdown() {
     $("#countdown_minutes").html(minutes);
   }
   $("#countdown_seconds").html(seconds);
-  if (days + hours + minutes + seconds > 0) {
+  //if (days + hours + minutes + seconds > 0) {
     setTimeout(updateCountdown, 1000);
-  }
+  //}
 }
 
 function roundPanelCorners() {
