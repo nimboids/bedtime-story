@@ -40,7 +40,13 @@
   </div>
 </div>
 <%- if Time.now >= finish_date -%>
-  <p>The book is now closed. Thank you to everyone who helped write the story.</p>
+  <p />
+  <div class="panel secondary">
+    <p>Thanks for visiting the Byte Night Bedtime Story, but the storybook has now closed.
+      We&rsquo;d like to thank everyone who took part to help create a wonderful story.
+      We are now transforming the story into an online book, so please bear with us.
+      The story will be unleashed very soon.</p>
+  </div>
 <%- else -%>
   <% form_for :story_contribution, :url => {:controller => "story_contributions", :action => "create"}, :html => {:id => "contribution"} do |f| %>
     <%= f.label :text, "Now, you continue the story&hellip;" %>

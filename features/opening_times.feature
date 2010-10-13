@@ -31,5 +31,5 @@ Feature: Only accept contributions during opening hours
   Scenario: Closed after closing date
     Given it is 0 day, 0 hours, 0 minutes and 0 seconds after the end time
     When I go to the home page
-    Then I should see "The book is now closed"
+    Then I should see "the storybook has now closed"
     And I should not see "Now, you continue the story"
