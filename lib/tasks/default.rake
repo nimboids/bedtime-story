@@ -2,7 +2,7 @@ require "rake/clean"
 
 Rake.application.instance_variable_get('@tasks').delete('default')
 
-CLEAN.include %w(log/** tmp/** coverage)
+CLEAN.include %w(log/** tmp/** coverage capybara*.html)
 
 task :default => [:clean, :'db:migrate:all'] do
   reports = ['log/spec.html', 'coverage', 'log/roodi.txt', 'log/features_ok.html',
