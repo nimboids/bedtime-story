@@ -3,7 +3,7 @@
     <%= link_to "Edit approved contributions", approved_story_contributions_url %>
   </p>
   <p>
-    <%= link_to "Export story as CSV", export_story_contributions_url %>
+    <%= link_to "Export story as CSV", export_story_contributions_url(:format => :csv) %>
   </p>
   <h2>Story contributions awaiting moderation:</h2>
   <% form_tag approve_story_contributions_url do -%>

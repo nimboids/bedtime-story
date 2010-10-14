@@ -50,7 +50,7 @@ class StoryContributionsController < InheritedResources::Base
   end
 
   def export
-    response["Content-Type"] = "text/csv"
+    response["Content-Type"] = "application/csv"
     render :text => StoryContribution.to_csv
   end
 

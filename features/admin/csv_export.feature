@@ -17,7 +17,7 @@ Feature: CSV export
     When I go to the admin page
     When I log in as "fred" with password "secret"
     And I follow "Export story as CSV"
-    Then the response content type should be "text/csv"
+    Then the response content type should be "application/csv"
     And the response should be a CSV file containing:
       | Text                        | Name         | E-mail address         | Approved? | Approved by      |
       | there was a king            | AN Other     | a.n.other@example.com  | Y         | fred@example.com |

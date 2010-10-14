@@ -313,9 +313,9 @@ describe StoryContributionsController do
         response.body.should == @csv
       end
 
-      it "returns a content-type of text/csv" do
+      it "returns a content-type of application/csv" do
         do_get
-        response.content_type.should == "text/csv"
+        response.content_type.should == "application/csv"
       end
     end
   end
