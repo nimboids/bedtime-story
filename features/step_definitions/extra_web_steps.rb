@@ -1,5 +1,9 @@
 Then %r/^the response status should be (\d+)$/ do |status|
-  response.response_code.should == status
+  page.response_code.should == status
+end
+
+Then %r/^the response content type should be "([^"]*)"$/ do |content_type|
+  page.response_headers["Content-Type"].should =~ /#{content_type}(;.*)?/
 end
 
 Then %r/^the page title should be "([^"]*)"$/ do |title|

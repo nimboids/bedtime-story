@@ -1,5 +1,5 @@
 class StoryContributionsController < InheritedResources::Base
-  before_filter :authenticate, :only => [:approve, :approved, :update]
+  before_filter :authenticate, :only => [:approve, :approved, :update, :export]
 
   def create
     create! do |success, failure|
@@ -47,6 +47,11 @@ class StoryContributionsController < InheritedResources::Base
   def approved
     @story_contributions = StoryContribution.approved
     render :action => 'approved'
+  end
+
+  def export
+    response["Content-Type"] = "text/csv"
+    render :text => StoryContribution.to_csv
   end
 
   private

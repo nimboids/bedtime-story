@@ -29,6 +29,12 @@ When %r/^a moderator has approved my contribution$/ do
   Given %(the story is not cached)
 end
 
+Given %r/^the contribution "([^"]*)" is approved by "([^"]*)"$/ do |text, approver|
+  contrib = StoryContribution.find_by_text text
+  contrib.approver = User.find_by_login approver
+  contrib.save
+end
+
 Then %r/^my contribution should be credited to "([^"]*)", "([^"]*)"$/ do |name, email|
   story_contribution = StoryContribution.last
   story_contribution.name.should == name

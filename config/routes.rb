@@ -1,5 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :story_contributions, :as => "contributions", :only => [:create, :edit, :update], :collection => {:approve => :post, :approved => :get}
+  map.resources :story_contributions, :as => "contributions", :only => [:create, :edit, :update],
+    :collection => {:approve => :post, :approved => :get, :export => :get}
   map.resources :admin, :only => :index
   map.resource :user_session, :only => [:new, :create]
   map.logout "/user_session/destroy", :controller => :user_sessions, :action => :destroy

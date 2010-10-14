@@ -1,3 +1,5 @@
+require "faster_csv"
+
 class StoryContribution < ActiveRecord::Base
   belongs_to :approver, :class_name => "User"
   named_scope :approved, :conditions => "approver_id is not null", :order => 'id'
@@ -19,5 +21,14 @@ class StoryContribution < ActiveRecord::Base
     contribution_to_approve.approver = approver
     contribution_to_approve.save!
     awaiting_approval.update_all :rejected => true
+  end
+
+  def self.to_csv
+    FasterCSV.generate do |csv|
+      csv << ["Text", "Name", "E-mail address", "Approved?", "Approved by"]
+      all(:order => :id).each do |c|
+        csv << [c.text, c.name, c.email, c.approver ? "Y" : "N", (c.approver.try(:email) || "")]
+      end
+    end
   end
 end

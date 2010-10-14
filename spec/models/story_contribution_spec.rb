@@ -130,4 +130,22 @@ describe StoryContribution do
       end
     end
   end
+
+  describe "converting to csv" do
+    before do
+      @approver = Factory :user, :email => "admin@example.com"
+      Factory :story_contribution, :text => "Once upon a time",
+        :name => "Fred", :email => "fred@example.com", :approver => @approver
+      Factory :story_contribution, :text => "The end",
+        :name => "Bob", :email => "bob@example.com"
+    end
+
+    it "should return CSV as a string" do
+      StoryContribution.to_csv.should == <<"EOF"
+Text,Name,E-mail address,Approved?,Approved by
+Once upon a time,Fred,fred@example.com,Y,admin@example.com
+The end,Bob,bob@example.com,N,""
+EOF
+    end
+  end
 end

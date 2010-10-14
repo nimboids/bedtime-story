@@ -5,6 +5,7 @@ gem "postgres"
 gem "rails", "2.3.9"
 gem "elastic_rails"
 gem "authlogic"
+gem "fastercsv"
 gem "formtastic"
 gem "twitter"
 

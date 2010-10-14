@@ -283,4 +283,40 @@ describe StoryContributionsController do
       end
     end
   end
+
+  describe "exporting" do
+    def do_get
+      get :export
+    end
+
+    context "when not logged in" do
+      before do
+        controller.stub(:current_user).and_return nil
+      end
+
+      it "redirects to the login page" do
+        do_get
+        response.should redirect_to new_user_session_url
+      end
+    end
+
+    context "when logged in" do
+      before do
+        @current_user = mock :user
+        controller.stub(:current_user).and_return @current_user
+        @csv = "foo,bar"
+        StoryContribution.stub(:to_csv).and_return @csv
+      end
+
+      it "renders the contributions as CSV" do
+        do_get
+        response.body.should == @csv
+      end
+
+      it "returns a content-type of text/csv" do
+        do_get
+        response.content_type.should == "text/csv"
+      end
+    end
+  end
 end
